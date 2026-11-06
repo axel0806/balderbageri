@@ -1,52 +1,53 @@
-# Balder IT Konsult UF
+# Balder Bageri UF
 
-Website for **Balder IT Konsult UF**, a student-run company (UF-företag) from Skellefteå, Sweden. We help local businesses with web development, IT support and digitalisation.
+Website for **Balder Bageri UF**, a student-run company (UF-företag) in Skellefteå, Sweden. We bake cookies at home and deliver them the same day.
 
 **Live site:** https://balderbageri.sigmaaxel.se
 
-> *Klarhet i det digitala mörkret.* ("Clarity in the digital darkness.")
-
 ## About the company
 
-Balder IT Konsult UF was started in 2026 by a group of upper-secondary students in Skellefteå. The name comes from the Norse god Balder, known for wisdom and light. As a UF company we run a real business during the school year: we quote, deliver and invoice like any consultancy, just on a smaller scale.
+Balder Bageri UF is run by Milian Tamminen and Axel Furtenbach within Ung Företagsamhet. Customers order by Instagram DM, pay with Swish in advance and get free home delivery to Centrum and Anderstorp (Wed, Fri or Sat, 16–19).
 
-**Services**
-
-- **Web development:** websites and simple web shops that are fast, clear and easy to update
-- **IT support & advice:** troubleshooting, cloud services and training
-- **Digitalisation:** mapping manual routines and suggesting simple tools that save time
+- Small box (Liten låda): 6 cookies, 79 kr
+- Large box (Stor låda): 12 cookies, up to 3 kinds, 149 kr
+- Kinds: Chocolate chip cookies, Kolakakor, Havrekakor, Hallongrottor, plus Kladdkakecookies for Christmas and Valentine's Day
 
 ## About this repository
 
-This repo contains the company's one-page website. It is a plain static site with no framework, bundler or package manager.
+A plain static one-page site with no framework, bundler or package manager. The design follows the company's printed flyers (`assets/inspiration/`).
 
 ```
-index.html   # Page markup (hero, about, services, process, contact)
-style.css    # Styling
-script.js    # Mobile navigation and contact form behaviour
+index.html        # Page markup, meta tags and JSON-LD structured data
+style.css         # All styling (design tokens as CSS custom properties)
+script.js         # Mobile navigation toggle
+robots.txt        # Crawler rules and sitemap pointer
+sitemap.xml       # Single-page sitemap (update lastmod when content changes)
+site.webmanifest  # Web app metadata
+favicon.svg, icon-*.png, apple-touch-icon.png, og-image.png
+assets/           # Logos and Instagram QR code
 ```
 
-The site is written in Swedish. Fonts (Space Grotesk and Inter) are loaded from Google Fonts.
+`assets/legacy-assets/` holds files from the previous IT-consultancy site and is not used.
+
+The site is written in Swedish. Fonts (Fraunces and Instrument Sans) are loaded from Google Fonts. Brand colours: wine `#522834`, deep wine `#3F1C27`, beige `#E3E2DC`, plus cream `#F5EFE3` and gold `#E1A43A` from the flyers.
 
 ## Running locally
 
-No installation is needed. Clone the repo and open `index.html` in your browser, or serve it with any static server:
+No installation is needed. Serve the folder with any static server:
 
 ```bash
-git clone https://github.com/axel0806/bitk.git
-cd bitk
-python3 -m http.server 8000
+py -m http.server 8000   # or python3 on macOS/Linux
 ```
 
 Then visit http://localhost:8000.
 
-## Contact form
+## SEO
 
-The contact form sends submissions through [Formspree](https://formspree.io). If you fork this project, replace the form's `action` URL in `index.html` with your own Formspree endpoint, otherwise messages will go to us.
+The page has a unique title and description, a canonical URL, Open Graph tags, and `Bakery` JSON-LD (no street address, since the bakery is run from home). When content, prices or delivery areas change, update the page text, the JSON-LD in `index.html` and `lastmod` in `sitemap.xml` together.
 
 ## Deployment
 
-The site is hosted on [Vercel](https://vercel.com). Changes pushed to `main` are deployed automatically.
+The site is hosted on [Vercel](https://vercel.com). Changes pushed to `main` are deployed automatically, so do development on a branch.
 
 ## Working with AI coding agents
 
@@ -54,10 +55,9 @@ Project conventions for AI assistants are documented in [`AGENTS.md`](AGENTS.md)
 
 ## Contact
 
-- Email: balderitkonsult@protonmail.com
-- Phone: 070-221 16 96
-- Instagram: [@balderitkonsult](https://www.instagram.com/balderitkonsult)
+- Instagram: [@balderbageri](https://www.instagram.com/balderbageri)
+- Phone and Swish: 070-221 16 96
 
 ## Legal
 
-Balder IT Konsult UF is run by students and is not a registered limited company (aktiebolag). © 2026 Balder IT Konsult UF.
+Balder Bageri UF is run by students and is not a registered limited company (aktiebolag). © 2026 Balder Bageri UF.

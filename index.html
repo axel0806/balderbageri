@@ -3,29 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BIT – Balder IT-konsult UF</title>
+<title>Balder Bageri – hembakade kakor med hemleverans i Skellefteå</title>
+<meta name="description" content="Balder Bageri UF bakar kakor i Skellefteå och cyklar hem dem till dig. Kaklådor från 79 kr, gratis hemleverans till Centrum och Anderstorp. Beställ via Instagram.">
 <meta name="theme-color" content="#522834">
-<link rel="icon" type="image/svg+xml" href="assets/bit-logo.svg">
+<link rel="canonical" href="https://balderbageri.sigmaaxel.se/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="sv_SE">
+<meta property="og:site_name" content="Balder Bageri">
+<meta property="og:title" content="Balder Bageri – nybakat hem till dörren">
+<meta property="og:description" content="Hembakade kakor i Skellefteå, bakade samma dag och levererade till dig. Kaklådor från 79 kr.">
+<meta property="og:url" content="https://balderbageri.sigmaaxel.se/">
+<meta property="og:image" content="https://balderbageri.sigmaaxel.se/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Balder Bageri UF – nybakat, hemlevererat">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://balderbageri.sigmaaxel.se/#website",
+      "url": "https://balderbageri.sigmaaxel.se/",
+      "name": "Balder Bageri",
+      "inLanguage": "sv-SE",
+      "publisher": { "@id": "https://balderbageri.sigmaaxel.se/#bakery" }
+    },
+    {
+      "@type": "Bakery",
+      "@id": "https://balderbageri.sigmaaxel.se/#bakery",
+      "name": "Balder Bageri",
+      "alternateName": "Balder Bageri UF",
+      "description": "Hembakade kakor i Skellefteå, bakade samma dag och levererade hem till dörren.",
+      "url": "https://balderbageri.sigmaaxel.se/",
+      "image": "https://balderbageri.sigmaaxel.se/og-image.png",
+      "logo": "https://balderbageri.sigmaaxel.se/icon-512.png",
+      "telephone": "+46702211696",
+      "priceRange": "79–149 kr",
+      "servesCuisine": "Kakor",
+      "sameAs": ["https://www.instagram.com/balderbageri"],
+      "areaServed": [
+        { "@type": "City", "name": "Skellefteå" },
+        { "@type": "Place", "name": "Centrum, Skellefteå" },
+        { "@type": "Place", "name": "Anderstorp, Skellefteå" }
+      ],
+      "founder": [
+        { "@type": "Person", "name": "Milian Tamminen" },
+        { "@type": "Person", "name": "Axel Furtenbach" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Kaklådor",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "priceCurrency": "SEK",
+            "price": "79",
+            "itemOffered": { "@type": "Product", "name": "Liten kaklåda", "description": "6 kakor, valfri sort" }
+          },
+          {
+            "@type": "Offer",
+            "priceCurrency": "SEK",
+            "price": "149",
+            "itemOffered": { "@type": "Product", "name": "Stor kaklåda", "description": "12 kakor, upp till 3 sorter" }
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
+<a class="skip" href="#lador">Hoppa till innehållet</a>
+
 <header id="site-header">
   <div class="wrap">
-    <nav>
-      <a href="#top" class="logo" aria-label="BIT – Balder IT-konsult, till toppen">
-<img src="assets/bit-logo-horizontal-white.svg" alt="BIT | Balder IT-konsult" width="190" height="28">
-</a>
+    <nav aria-label="Huvudmeny">
+      <a href="#top" class="logo" aria-label="Balder Bageri, till toppen">
+        <img src="assets/balder-logga-vit.svg" alt="Balder Bageri UF" width="190" height="53">
+      </a>
       <ul class="nav-links" id="navLinks">
+        <li><a href="#lador">Lådor</a></li>
+        <li><a href="#sorter">Sorter</a></li>
+        <li><a href="#bestall">Så beställer du</a></li>
         <li><a href="#om-oss">Om oss</a></li>
-        <li><a href="#tjanster">Tjänster</a></li>
-        <li><a href="#process">Så jobbar vi</a></li>
-        <li><a href="#kontakt" class="nav-cta">Kontakta oss</a></li>
+        <li><a href="#kontakt" class="nav-cta">Beställ</a></li>
       </ul>
-      <button class="nav-toggle" id="navToggle" aria-label="Öppna meny" aria-expanded="false">
+      <button class="nav-toggle" id="navToggle" aria-label="Öppna meny" aria-expanded="false" aria-controls="navLinks">
         <span></span>
       </button>
     </nav>
@@ -35,144 +113,98 @@
 <main id="top">
 
   <section class="hero">
+    <div class="cookie cookie-hero" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="wrap">
-      <div>
-        <div class="eyebrow">Balder IT Konsult UF, Skellefteå</div>
-        <h1>Klarhet i det digitala mörkret.</h1>
-        <p class="hero-sub">Vi är ett UF-företag som hjälper lokala verksamheter att förstå och forma sin digitala vardag — från första hemsidan till smartare arbetsflöden.</p>
-        <div class="hero-actions">
-          <a href="#kontakt" class="btn btn-primary">Boka ett kostnadsfritt samtal</a>
-          <a href="#tjanster" class="btn btn-ghost">Se vad vi gör</a>
-        </div>
+      <p class="eyebrow">Balder Bageri UF · Skellefteå</p>
+      <h1>Balder Bageri – <span>nybakat hem till dörren.</span></h1>
+      <p class="hero-sub">Hembakade kakor i Skellefteå – bakade samma dag och levererade till dig.</p>
+      <div class="hero-actions">
+        <a href="#lador" class="btn btn-primary">Kaklådor från 79 kr</a>
+        <a href="#bestall" class="btn btn-outline">Så beställer du</a>
       </div>
-      <div class="hero-visual">
-<img src="assets/phone.webp" alt="Två mobiltelefoner i vinrött, på skärmen en leende man" width="1000" height="863">
-</div>
+    </div>
+  </section>
+
+  <section class="lador" id="lador">
+    <div class="wrap">
+      <h2>Välj din kaklåda</h2>
+      <div class="price-grid">
+        <article class="price-card">
+          <h3>Liten låda</h3>
+          <p>6 kakor, valfri sort</p>
+          <p class="price">79 kr</p>
+        </article>
+        <article class="price-card price-card-dark">
+          <h3>Stor låda</h3>
+          <p>12 kakor, upp till 3 sorter</p>
+          <p class="price">149 kr</p>
+        </article>
+      </div>
+      <p class="note">Lådorna märks med ingredienser, allergener och bakdatum. Inga nötter i grundsortimentet.</p>
+    </div>
+  </section>
+
+  <section class="sorter" id="sorter">
+    <div class="wrap">
+      <h2>Våra sorter</h2>
+      <ul class="sort-grid">
+        <li><svg class="dot" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#e1a43a"/><g fill="#6b3e1f"><circle cx="16" cy="17" r="3"/><circle cx="27" cy="16" r="2.4"/><circle cx="22" cy="27" r="3"/></g></svg>Chocolate chip cookies</li>
+        <li><svg class="dot" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><rect x="2" y="9" width="40" height="26" rx="7" fill="#c98a3a"/><rect x="9" y="20" width="26" height="3" rx="1.5" fill="#8a5420"/></svg>Kolakakor</li>
+        <li><svg class="dot" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#e8c88a"/><g fill="#b88a45"><circle cx="15" cy="17" r="2"/><circle cx="27" cy="15" r="2"/><circle cx="22" cy="27" r="2"/><circle cx="30" cy="26" r="2"/><circle cx="14" cy="28" r="2"/></g></svg>Havrekakor</li>
+        <li><svg class="dot" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#e8c88a"/><circle cx="22" cy="22" r="8" fill="#c0314a"/></svg>Hallongrottor</li>
+        <li><svg class="dot" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="none" stroke="#522834" stroke-width="3" stroke-dasharray="5 4"/></svg><span>Kladdkakecookies <small>– jul och alla hjärtans dag</small></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="bestall" id="bestall">
+    <div class="wrap">
+      <h2>Så beställer du</h2>
+      <ol class="steps">
+        <li><span class="num">1</span><p>Skicka ett DM på Instagram, senast kl. 20 dagen före.</p></li>
+        <li><span class="num">2</span><p>Betala med Swish i förskott.</p></li>
+        <li><span class="num">3</span><p>Vi bakar och cyklar hem till dig onsdag, fredag eller lördag kl. 16–19.</p></li>
+      </ol>
+      <p class="delivery"><strong>Gratis hemleverans</strong> till Centrum och Anderstorp i Skellefteå.</p>
+    </div>
+  </section>
+
+  <section class="fredagsfika" id="fredagsfika">
+    <div class="wrap fika-grid">
+      <div>
+        <h2>Fredagsfika</h2>
+        <p>Ta 6 eller 12 kakor och swisha. Fyra sorter, fyra påsar – Chocolate chip, Kolakakor, Havrekakor och Hallongrottor.</p>
+        <p class="fika-prices"><span>6 kakor <strong>79 kr</strong></span><span>12 kakor <strong>149 kr</strong></span></p>
+      </div>
+      <div class="swish">
+        <p class="label">Swisha till</p>
+        <p class="swish-nr"><a href="tel:+46702211696">070-221 16 96</a></p>
+        <p>Betala med Swish i förskott.</p>
+      </div>
     </div>
   </section>
 
   <section class="om-oss" id="om-oss">
-    <div class="wrap om-grid">
-      <div class="section-head">
-        <h2>Uppkallade efter ljusets gud, byggda av teknikintresserade gymnasieelever.</h2>
-      </div>
-      <div>
-        <div class="om-text">
-          <p>Balder IT Konsult UF startades av en grupp gymnasieelever i Skellefteå med ett gemensamt intresse för teknik, design och att lösa faktiska problem för faktiska företag. Namnet är hämtat från den nordiska guden Balder, känd för sin klokskap och sitt ljus — precis den känsla vi vill ge våra kunder när tekniken känns krånglig.</p>
-          <p>Som UF-företag driver vi verksamheten på riktigt under läsåret: vi offererar, levererar och fakturerar precis som ett vanligt konsultbolag, fast i mindre skala och med studenttempo.</p>
-        </div>
-        <p class="om-facts">Vi är två personer, grundade 2026 och arbetar inom tre områden: webb, IT-stöd och digitalisering.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="tjanster" id="tjanster">
     <div class="wrap">
-      <div class="section-head">
-        <h2>Det vi hjälper er med</h2>
-        <p>Tre områden där vi kan göra störst skillnad för ett litet eller medelstort företag, till en prisnivå som passar en UF-budget.</p>
-      </div>
-
-      <div class="service-row">
-        <div class="service-title">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/><circle cx="6.5" cy="6.5" r="0.6" fill="currentColor"/></svg>
-          Webbutveckling
-        </div>
-        <div class="service-body">
-          <p>Vi bygger hemsidor och enklare webbutiker som är snabba, tydliga och lätta att uppdatera själv — utan onödiga plugins eller krångliga system.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-title">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>
-          IT-support &amp; rådgivning
-        </div>
-        <div class="service-body">
-          <p>Krånglande dator, förvirrande molntjänst eller ett system ingen riktigt förstår längre? Vi reder ut det och förklarar på ett språk som inte kräver en IT-avdelning.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-title">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V9M12 19V5M20 19v-7"/></svg>
-          Digitalisering
-        </div>
-        <div class="service-body">
-          <p>Vi kartlägger manuella rutiner — bokningar, fakturor, scheman — och föreslår enkla digitala lösningar som faktiskt sparar tid varje vecka.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="process" id="process">
-    <div class="wrap">
-      <div class="section-head">
-        <h2style="color:var(--off-white)">Fyra steg från idé till leverans</h2>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">01</div>
-          <h3>Behovssamtal</h3>
-          <p>Vi träffas, lyssnar och ställer frågor tills vi förstår vad problemet faktiskt är.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <h3>Förslag</h3>
-          <p>Ni får ett konkret upplägg med omfattning, tidsplan och pris — inga överraskningar.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <h3>Utveckling</h3>
-          <p>Vi bygger, testar och stämmer av löpande så att ingen är osäker på vart det är på väg.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">04</div>
-          <h3>Leverans &amp; support</h3>
-          <p>Ni får en genomgång, dokumentation och möjlighet att höra av er efteråt.</p>
-        </div>
-      </div>
+      <h2>Om Balder Bageri</h2>
+      <p>Balder Bageri UF är ett ungt företag i Skellefteå som bakar kakor hemma och levererar dem samma dag. Vi drivs av Milian Tamminen och Axel Furtenbach inom Ung Företagsamhet.</p>
     </div>
   </section>
 
   <section class="kontakt" id="kontakt">
     <div class="wrap kontakt-grid">
       <div>
-        <h2>Redo att reda ut er IT?</h2>
-        <p class="kontakt-sub">Skriv till oss så återkommer vi inom ett par dagar. Ett första samtal är alltid kostnadsfritt.</p>
-        <div class="kontakt-info">
-          <a href="mailto:kontakt@balderitkonsult.se">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
-            kontakt@balderitkonsult.se
-          </a>
-          <a href="tel:+46702211696">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2C9.5 21 3 14.5 3 6a2 2 0 012-2z"/></svg>
-            070-221 16 96
-          </a>
-          <a href="https://www.instagram.com/balderitkonsult" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-            @balderitkonsult
-          </a>
-        </div>
+        <h2>Beställ nu</h2>
+        <p>Skriv till oss på Instagram, så ordnar vi resten.</p>
+        <ul class="kontakt-info">
+          <li><a href="https://www.instagram.com/balderbageri" target="_blank" rel="noopener">Instagram: @balderbageri</a></li>
+          <li><a href="tel:+46702211696">Tel och Swish: 070-221 16 96</a></li>
+        </ul>
       </div>
-      <form id="contactForm" action="https://formspree.io/f/xoeqbzaa" method="POST">
-        <div class="form-row">
-          <div>
-            <label for="namn">Namn</label>
-            <input id="namn" name="namn" type="text" placeholder="För- och efternamn" required>
-          </div>
-          <div>
-            <label for="epost">E-post</label>
-            <input id="epost" name="epost" type="email" placeholder="dig@företag.se" required>
-          </div>
-        </div>
-        <div>
-          <label for="meddelande">Vad behöver ni hjälp med?</label>
-          <textarea id="meddelande" name="meddelande" placeholder="Berätta kort om er utmaning..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Skicka meddelande</button>
-        <div class="form-msg" id="formMsg"></div>
-      </form>
+      <a class="qr" href="https://www.instagram.com/balderbageri" target="_blank" rel="noopener">
+        <img src="assets/insta-qr.svg" alt="QR-kod till Balder Bageri på Instagram" width="200" height="200" loading="lazy">
+        <span>Skanna och beställ</span>
+      </a>
     </div>
   </section>
 
@@ -180,7 +212,7 @@
 
 <footer>
   <div class="wrap footer-row">
-    <span>© 2026 Balder IT-konsult UF. Drivs av elever, ej ett registrerat aktiebolag.</span>
+    <span>© 2026 Balder Bageri UF. Drivs av elever inom Ung Företagsamhet, ej ett registrerat aktiebolag.</span>
     <a href="#top">Till toppen</a>
   </div>
 </footer>

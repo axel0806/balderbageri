@@ -4,9 +4,9 @@ Guidance for AI coding agents working in this repository.
 
 ## Project overview
 
-Single-page marketing website for **Balder IT Konsult UF**, a Swedish student-run
-company (UF-företag) in Skellefteå offering web development, IT support and
-digitalisation consulting. Live at https://bitk-kappa.vercel.app (hosted on Vercel).
+Single-page website for **Balder Bageri UF**, a Swedish student-run company (UF-företag)
+in Skellefteå that bakes cookies at home and delivers them. Live at
+https://balderbageri.sigmaaxel.se (hosted on Vercel). Goal: rank first in search for "Balder Bageri".
 
 It is a plain static site: **no framework, no bundler, no package manager, no build step.**
 Keep it that way unless the maintainer explicitly asks otherwise.
@@ -14,91 +14,70 @@ Keep it that way unless the maintainer explicitly asks otherwise.
 ## Repository layout
 
 ```
-assets/      # Logo SVGs and phone.webp, referenced from index.html
-index.html   # All page markup (one page, anchor-based sections)
-style.css    # All styling (design tokens as CSS custom properties)
-script.js    # Small vanilla JS: mobile nav toggle, header behaviour, contact form handling
+assets/            # Logos, Instagram QR; inspiration/ = flyer designs, legacy-assets/ = old IT site (unused)
+index.html         # All markup, meta tags and JSON-LD
+style.css          # All styling (design tokens as CSS custom properties)
+script.js          # Mobile nav toggle only
+robots.txt, sitemap.xml, site.webmanifest, favicon.svg, icon-*.png, og-image.png
 README.md
 LICENSE.md
 ```
 
 ## Running locally
 
-No install needed. Either open `index.html` in a browser, or serve it:
-
 ```bash
-python3 -m http.server 8000   # then visit http://localhost:8000
+py -m http.server 8000   # python3 on macOS/Linux; then visit http://localhost:8000
 ```
 
-There are no tests, linters or formatters configured. Verify changes manually in a
-browser (see "Before you finish").
+There are no tests, linters or formatters. Verify changes manually in a browser (see "Before you finish").
 
 ## Deployment
 
-Pushing to `main` deploys via Vercel. Treat `main` as production: don't commit
-half-finished work to it.
+Pushing to `main` deploys via Vercel. Treat `main` as production: don't commit half-finished work to it.
 
 ## Working principles
 
-Guidelines for every task in this repo. For trivial tasks (a typo, a colour tweak), use judgment.
-
-- **Think before coding.** State assumptions, ask when something is unclear, and say if a simpler approach exists.
-- **Keep it simple.** Write only what was asked. On this site that usually means plain HTML, CSS and a few lines of vanilla JS.
-- **Make surgical changes.** Touch only what the request needs and match the existing style. Mention unrelated problems instead of fixing them, and remove only the orphans your own change created.
-- **Verify in the browser.** There are no automated tests, so define the check before editing, for example "nav link scrolls to `#tjanster` at 375px", and confirm it afterwards.
+- **Think before coding.** State assumptions, ask when something is unclear.
+- **Keep it simple.** Plain HTML, CSS and a few lines of vanilla JS.
+- **Make surgical changes.** Touch only what the request needs and match the existing style.
+- **Verify in the browser.** Define the check before editing, for example "nav link scrolls to `#lador` at 375px", and confirm it afterwards.
 
 ## Conventions
 
 ### Language and content
-- The site is in **Swedish** (`<html lang="sv">`). All user-facing copy must be Swedish.
-  Code comments and commit messages may be in English.
-- Section anchors use Swedish ids: `#om-oss`, `#tjanster`, `#process`, `#kontakt`, plus `#top`.
-  Don't rename them without updating nav links, CSS and JS together.
-- Don't change factual claims, contact details, prices or legal wording (team size,
-  founding year, email, phone, Instagram handle, the footer note that this is
-  "ej ett registrerat aktiebolag") unless the user explicitly provides the new values.
+- The site is in **Swedish** (`<html lang="sv">`). All user-facing copy must be Swedish. Code comments and commit messages may be in English.
+- Section anchors: `#top`, `#lador`, `#sorter`, `#bestall`, `#fredagsfika`, `#om-oss`, `#kontakt`. Don't rename them without updating nav links, CSS and JS together.
+- Don't change factual claims (prices, delivery days and areas, phone/Swish number, Instagram handle, founders, the footer note "ej ett registrerat aktiebolag") unless the user explicitly provides the new values. The flyers in `assets/inspiration/` are the source for the current ones.
+- Keep the brand name spelled exactly "Balder Bageri" in title, h1, logo alt text, JSON-LD and footer.
 
 ### HTML
-- Semantic elements (`header`, `nav`, `main`, `section`, `footer`); one `h1` only.
-- Keep accessibility attributes: `aria-label` and `aria-expanded` on the nav toggle,
-  `label` elements tied to form inputs via `for`/`id`, `rel="noopener"` on external
-  `target="_blank"` links.
-- Icons are inline SVG using `currentColor` or the brand colours; don't add an icon library.
+- Semantic elements; one `h1` only. Keep `aria-label`/`aria-expanded` on the nav toggle and `rel="noopener"` on external `target="_blank"` links.
+- Images need `alt`, `width` and `height`; use `loading="lazy"` below the fold.
 
 ### CSS
-- Colours, fonts and spacing live in CSS custom properties in `style.css`. Reuse the
-  existing variables (e.g. `--off-white`) instead of hard-coding new values.
-- Brand palette: sun gold `#E4B75C`, light blue `#86B4D6`, deep navy `#0B1220`.
-- Fonts: Space Grotesk (headings) and Inter (body), loaded from Google Fonts in `index.html`.
-- Mobile-first and responsive; check the layout at roughly 375px, 768px and 1280px.
-- Prefer editing `style.css` over adding inline styles (a few exist; don't add more).
+- Colours, fonts and sizes live in CSS custom properties in `style.css`; reuse them.
+- Palette: wine `#522834`, deep wine `#3F1C27`, beige `#E3E2DC`, cream `#F5EFE3`, gold `#E1A43A`.
+- Fonts: Fraunces (headings, prices) and Instrument Sans (body), from Google Fonts.
+- Mobile-first; check 375px, 768px and 1280px.
 
 ### JavaScript
-- Vanilla ES6+ only. No libraries, no transpilation, no `npm install`.
-- `script.js` relies on these element ids in `index.html`: `site-header`, `navToggle`,
-  `navLinks`, `contactForm`, `formMsg`. Keep them in sync if you rename anything.
+- Vanilla ES6+ only. `script.js` relies on the ids `navToggle` and `navLinks`.
 
-### Contact form
-- `#contactForm` posts to a **Formspree** endpoint (`https://formspree.io/f/...`).
-  Don't change or remove the endpoint, and don't add other third-party form or
-  tracking services.
-- Field names are Swedish (`namn`, `epost`, `meddelande`); keep them stable so
-  existing Formspree submissions and email templates keep working.
+### SEO
+- Keep title, meta description, canonical, Open Graph tags and the `Bakery` JSON-LD consistent with the visible page. When prices, areas or contact details change, update the page, the JSON-LD and `lastmod` in `sitemap.xml` together.
+- Don't publish a street address (home bakery).
 
 ## Boundaries
 
 - Don't add dependencies, build tooling, or a framework without asking first.
-- Don't add analytics, cookies or trackers (the site collects personal data through
-  the contact form, so GDPR matters).
-- Never commit secrets or API keys. There shouldn't be any in this repo.
+- Don't add analytics, cookies or trackers (GDPR).
+- Never commit secrets or API keys.
+- Don't reference anything in `assets/legacy-assets/`.
 
 ## Before you finish
 
 1. Open the page and check there are no console errors.
 2. Check the nav links scroll to the right sections, on desktop and mobile widths.
 3. Check the mobile menu opens and closes.
-4. If you touched the form, confirm validation still works (all fields are `required`)
-   and the success/error message area (`#formMsg`) still displays. Don't submit real
-   test data to the live Formspree endpoint more than necessary.
-5. Check any new Swedish copy for spelling (å, ä, ö) and consistent tone: friendly,
-   plain language, no jargon.
+4. Check new Swedish copy for spelling (å, ä, ö) and a friendly, plain tone.
+5. If you touched SEO data, re-check the JSON-LD and meta tags in the page source.
