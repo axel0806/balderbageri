@@ -8,5 +8,5 @@ All that should remain form the website is the color scheme. Don't use any of th
 
 ## Leverage pre-existing design language.
 
-See assets\inspiration\*.html for preexisting flyer designs
+See assets\inspiration for preexisting flyer designs
 
