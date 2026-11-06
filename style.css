@@ -23,7 +23,7 @@ html{ scroll-behavior: smooth; scroll-padding-top: 80px; background: var(--wine)
 
 body{
   margin: 0;
-  background: var(--cream);
+  background: var(--wine-deep);
   color: var(--ink);
   font-family: var(--font-body);
   font-size: 18px;
@@ -40,6 +40,7 @@ h3{ font-weight: 700; }
 a:focus-visible, button:focus-visible{ outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
 
 .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+main{ background: var(--cream); }
 section{ padding: 80px 0; position: relative; }
 
 .skip{ position: absolute; left: -999px; top: 8px; background: var(--gold); color: var(--ink); padding: 8px 14px; z-index: 200; border-radius: 6px; }
@@ -174,7 +175,7 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .qr span{ font-weight: 600; font-size: 0.9rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--beige); }
 
 /* ---------- Sidfot ---------- */
-footer{ background: var(--wine-deep); border-top: 1px solid rgba(227,226,220,0.18); padding: 24px 0; }
+footer{ background: var(--wine-deep); border-top: 1px solid rgba(227,226,220,0.18); padding: 24px 0 calc(24px + env(safe-area-inset-bottom)); }
 .footer-row{ display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-row, .footer-row a{ color: rgba(245,239,227,0.7); font-size: 0.85rem; }
 .footer-row a{ text-decoration: none; }
