@@ -2,7 +2,7 @@
 
 Website for **Balder IT Konsult UF**, a student-run company (UF-företag) from Skellefteå, Sweden. We help local businesses with web development, IT support and digitalisation.
 
-**Live site:** https://bitk-kappa.vercel.app
+**Live site:** https://balderbageri.sigmaaxel.se
 
 > *Klarhet i det digitala mörkret.* ("Clarity in the digital darkness.")
 
