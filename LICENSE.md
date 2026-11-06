@@ -1,1 +1,1 @@
-Copyright (c) Balder IT Konsult UF. All rights reserved.
+Copyright (c) Balder Bageri UF. All rights reserved.
