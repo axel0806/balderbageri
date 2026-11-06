@@ -154,7 +154,8 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .fredagsfika h2{ color: var(--gold-light); }
 .fika-grid{ display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
 .fika-prices{ margin-top: 24px; display: flex; gap: 32px; flex-wrap: wrap; font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; }
-.fika-prices strong{ color: var(--gold-light); font-weight: 900; margin-left: 6px; }
+.fika-prices strong{ color: var(--gold-light); font-weight: 900; }
+.sep{ color: var(--gold); font-size: 1.6em; line-height: 0; vertical-align: -0.12em; margin: 0 6px; }
 .swish{ background: var(--gold); color: var(--ink); border-radius: 28px; padding: 28px 32px; }
 .label{ font-weight: 600; font-size: 0.9rem; letter-spacing: 0.09em; text-transform: uppercase; }
 .swish-nr{ font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1; margin: 10px 0; white-space: nowrap; }
@@ -197,7 +198,7 @@ footer{ background: var(--wine-deep); border-top: 1px solid rgba(227,226,220,0.1
   .hero{ padding: 120px 0 120px; }
   .cookie-hero{ width: 220px; right: -70px; top: auto; bottom: -60px; }
   .price-grid, .sort-grid, .steps, .fika-grid, .kontakt-grid{ grid-template-columns: 1fr; }
-  .qr{ justify-self: start; }
+  .qr{ justify-self: center; }
 }
 @media (max-width: 480px){
   .wrap{ padding: 0 18px; }
