@@ -186,7 +186,7 @@ footer{ background: var(--wine-deep); border-top: 1px solid rgba(227,226,220,0.1
 @media (max-width: 860px){
   section{ padding: 60px 0; }
   .nav-links{
-    position: fixed; top: 68px; left: 0; right: 0;
+    position: absolute; top: 100%; left: 0; right: 0;
     background: var(--wine);
     flex-direction: column; align-items: flex-start; gap: 18px;
     padding: 22px 24px 30px;
