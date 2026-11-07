@@ -35,3 +35,15 @@ below is specific to Claude Code.
 - `script.js` only handles the mobile menu and finds elements by id (`navToggle`, `navLinks`). Renaming one in `index.html` breaks it without an error.
 - SEO data (title, description, canonical, Open Graph, `Bakery` JSON-LD) lives in the `<head>` of `index.html`; `robots.txt` and `sitemap.xml` sit in the repo root. Keep them consistent with the visible page text.
 - There is no contact form: customers order by Instagram DM or SMS (no phone calls) and pay with Swish.
+
+## Business documents
+
+- These Claude artifacts belong to the business (links and descriptions are in the README):
+  - Affärsplan – Balder Bageri UF (Claude Docs document): https://claude.ai/artifact/BXozTzDyttkhK3qZS3mjPZ
+  - Balder Bageri Flyer A7 (design canvas, source of `assets/inspiration/Balder Bageri Flyer A7.html`): https://claude.ai/artifact/KnijXfmihD9SqDmF1fL5of
+  - Fredagsfika – bordsskylt (design canvas for the in-person table sign; its section was removed from the site): https://claude.ai/artifact/NYqCwYVpbZG8BcBEX2Y9uK
+- Read them with the Artifact tool's `read` action, not a web fetch. When site facts change, tell the user which of these may need the same update; don't edit them unless asked.
+- Exported copies and other business files live outside the repo in `../docs`: the business plan (`Affärsplan – Balder Bageri UF.docx`), budget and bookkeeping (`.xlsx`), and the box and ingredient label sheets (`Balder_Bageri_*_Avery_L7651.docx`). The README lists them.
+- They describe the same business as the site. When prices, sorts, delivery details or contact details change on the site, tell the user which of these documents may need the same update. Don't edit them unless asked.
+- The ingredient labels are the source for allergen information. Don't put allergen claims on the site that the labels don't support.
+- Never copy figures from the budget or bookkeeping onto the site or into the repo: the repo is public on GitHub.

@@ -12,6 +12,28 @@ Balder Bageri UF is run by Milian Tamminen and Axel Furtenbach within Ung Föret
 - Large box (Stor låda): 12 cookies, up to 3 kinds, 149 kr
 - Kinds: Chocolate chip cookies, Kolakakor, Havrekakor, Hallongrottor, plus Kladdkakecookies for Christmas and Valentine's Day
 
+## Business documents
+
+These Claude artifacts belong to the business and describe the same products, prices and ordering as this site:
+
+| Artifact | What it is |
+| --- | --- |
+| [Affärsplan – Balder Bageri UF](https://claude.ai/artifact/BXozTzDyttkhK3qZS3mjPZ) | Business plan (Claude Docs document) |
+| [Balder Bageri Flyer A7](https://claude.ai/artifact/KnijXfmihD9SqDmF1fL5of) | A7 flyer design; the source of `assets/inspiration/Balder Bageri Flyer A7.html` |
+| [Fredagsfika – bordsskylt](https://claude.ai/artifact/NYqCwYVpbZG8BcBEX2Y9uK) | A4 table sign for selling in person; the source of `assets/inspiration/Fredagsfika – bordsskylt – Bordsskylt A4.html` |
+
+Exported copies and other files are kept outside this repository, in the sibling folder `../docs` (`UF/docs` next to `UF/balderbageri`). They are not published on the site or on GitHub.
+
+| File | What it is |
+| --- | --- |
+| `Affärsplan – Balder Bageri UF.docx` | Business plan |
+| `Budget Balder Bageri UF.xlsx` | Budget |
+| `Bokföring Balder Bageri UF.xlsx` | Bookkeeping |
+| `Balder_Bageri_etiketter_Avery_L7651.docx` | Box labels (Avery L7651 sheets) |
+| `Balder_Bageri_ingredienser_Avery_L7651.docx` | Ingredient and allergen labels (Avery L7651 sheets) |
+
+If prices, sorts, delivery details or contact details change, keep the website and these documents in agreement.
+
 ## About this repository
 
 A plain static one-page site with no framework, bundler or package manager. The design follows the company's printed flyers (`assets/inspiration/`).
