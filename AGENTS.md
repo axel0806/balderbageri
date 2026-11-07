@@ -46,7 +46,7 @@ Pushing to `main` deploys via Vercel. Treat `main` as production: don't commit h
 
 ### Language and content
 - The site is in **Swedish** (`<html lang="sv">`). All user-facing copy must be Swedish. Code comments and commit messages may be in English.
-- Section anchors: `#top`, `#lador`, `#sorter`, `#bestall`, `#fredagsfika`, `#om-oss`, `#kontakt`. Don't rename them without updating nav links, CSS and JS together.
+- Section anchors: `#top`, `#lador`, `#sorter`, `#bestall`, `#om-oss`, `#kontakt`. Don't rename them without updating nav links, CSS and JS together.
 - Don't change factual claims (prices, delivery days and areas, phone/Swish number, Instagram handle, founders, the footer note "ej ett registrerat aktiebolag") unless the user explicitly provides the new values. The flyers in `assets/inspiration/` are the source for the current ones.
 - Keep the brand name spelled exactly "Balder Bageri" in title, h1, logo alt text, JSON-LD and footer.
 

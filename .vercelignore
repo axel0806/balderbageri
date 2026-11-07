@@ -1,0 +1,9 @@
+# Repo files that should not be served on the live site
+.gitignore
+AGENTS.md
+CLAUDE.md
+PLANDRAFT.md
+README.md
+LICENSE.md
+assets/inspiration
+assets/legacy-assets

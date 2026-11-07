@@ -12,6 +12,20 @@ navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('
 navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
+// Kopiera Swish-numret, så att man slipper skriva av det.
+document.querySelectorAll('.copy').forEach((btn) => {
+  const label = btn.textContent;
+  btn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(btn.dataset.copy);
+      btn.textContent = 'Kopierat!';
+    } catch {
+      btn.textContent = 'Kunde inte kopiera';
+    }
+    setTimeout(() => { btn.textContent = label; }, 2000);
+  });
+});
+
 // Färgen bakom sidan (syns vid överscroll och bakom iPhones verktygsfält):
 // vinrött överst som menyn, mörkare vinrött nere som sidfoten.
 (() => {
