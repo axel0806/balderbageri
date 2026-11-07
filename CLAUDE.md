@@ -34,4 +34,4 @@ below is specific to Claude Code.
 - `index.html` is the only page. Sections are anchored by id (`#lador`, `#sorter`, `#bestall`, `#om-oss`, `#kontakt`, `#top`), and the header nav links point at them.
 - `script.js` only handles the mobile menu and finds elements by id (`navToggle`, `navLinks`). Renaming one in `index.html` breaks it without an error.
 - SEO data (title, description, canonical, Open Graph, `Bakery` JSON-LD) lives in the `<head>` of `index.html`; `robots.txt` and `sitemap.xml` sit in the repo root. Keep them consistent with the visible page text.
-- There is no contact form: customers order by Instagram DM and pay with Swish.
+- There is no contact form: customers order by Instagram DM or SMS (no phone calls) and pay with Swish.

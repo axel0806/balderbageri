@@ -162,6 +162,7 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
   vertical-align: 0.1em;
 }
 .copy:hover{ background: rgba(82,40,52,0.08); }
+.steps .copy{ display: block; margin: 12px 0 0; }
 .kontakt .copy{ color: var(--gold-light); }
 .kontakt .copy:hover{ background: rgba(239,193,95,0.12); }
 

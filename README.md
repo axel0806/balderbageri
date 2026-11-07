@@ -6,7 +6,7 @@ Website for **Balder Bageri UF**, a student-run company (UF-företag) in Skellef
 
 ## About the company
 
-Balder Bageri UF is run by Milian Tamminen and Axel Furtenbach within Ung Företagsamhet. Customers order by Instagram DM, pay with Swish in advance and get free home delivery to Centrum and Anderstorp (Wed, Fri or Sat, 16–19).
+Balder Bageri UF is run by Milian Tamminen and Axel Furtenbach within Ung Företagsamhet. Customers order by Instagram DM or SMS (no phone calls), pay with Swish in advance and get free home delivery to Centrum and Anderstorp (Wed, Fri or Sat, 16–19).
 
 - Small box (Liten låda): 6 cookies, 79 kr
 - Large box (Stor låda): 12 cookies, up to 3 kinds, 149 kr
@@ -56,7 +56,7 @@ Project conventions for AI assistants are documented in [`AGENTS.md`](AGENTS.md)
 ## Contact
 
 - Instagram: [@balderbageri](https://www.instagram.com/balderbageri)
-- Phone and Swish: 070-221 16 96
+- SMS and Swish: 070-221 16 96 (no phone calls)
 
 ## Legal
 
