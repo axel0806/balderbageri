@@ -93,14 +93,12 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 
 /* ---------- Hero ---------- */
 .hero{ padding: 150px 0 110px; overflow: hidden; }
-.cookie-hero{ width: min(60vw, 454px); aspect-ratio: 1; right: -12vw; top: 110px; }
+.cookie-hero{ width: min(48vw, 560px); aspect-ratio: 1; right: -9vw; top: 130px; }
 .hero .wrap{ position: relative; }
-.eyebrow{
-  font-weight: 600; font-size: 0.85rem; letter-spacing: 0.09em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 20px;
-}
-.hero h1{ font-size: clamp(2.6rem, 8vw, 6rem); line-height: 0.95; max-width: 11ch; }
 .hero h1 span{ display: block; }
+.h1-brand{ font-size: clamp(1.25rem, 2.6vw, 1.7rem); font-weight: 700; letter-spacing: -0.01em; color: var(--wine); margin-bottom: 18px; }
+.h1-main{ font-size: clamp(3.4rem, 11vw, 7.25rem); line-height: 0.9; letter-spacing: -0.035em; max-width: 7.5ch; }
+.vh{ position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .hero-sub{ margin-top: 26px; font-size: clamp(1.15rem, 2.4vw, 1.5rem); line-height: 1.35; max-width: 22em; }
 .hero-actions{ margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
 .btn{
@@ -119,11 +117,16 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .lador{ padding-top: 40px; }
 .price-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .price-card{
-  border: 3px solid var(--wine); border-radius: 28px; padding: 28px 32px;
+  border: 3px solid var(--wine); border-radius: 28px; padding: 26px 32px;
+  display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 16px;
 }
-.price-card h3{ font-size: 2rem; }
-.price-card p:not(.price){ color: var(--muted); margin-top: 4px; }
-.price{ font-family: var(--font-display); font-weight: 900; font-size: clamp(3rem, 8vw, 4.75rem); line-height: 1.05; color: var(--wine); margin-top: 14px; }
+.price-card h3{ font-size: clamp(1.6rem, 3vw, 2rem); }
+.price-card p:not(.price){ color: var(--muted); margin-top: 2px; }
+.price{
+  grid-column: 2; grid-row: 1 / span 2;
+  font-family: var(--font-display); font-weight: 900; font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1; color: var(--wine); white-space: nowrap;
+}
 .price-card-dark{ background: var(--wine); color: #fff; }
 .price-card-dark p:not(.price){ color: rgba(255,255,255,0.85); }
 .price-card-dark .price{ color: var(--gold-light); }
@@ -138,7 +141,8 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
   font-weight: 600; font-size: 1.35rem; line-height: 1.2;
 }
 .sort-grid small{ display: block; font-weight: 400; font-size: 0.9rem; color: var(--muted); margin-top: 4px; }
-.dot{ flex: none; width: 44px; height: 44px; }
+.sort-grid .seasonal{ grid-column: 1 / -1; border-style: dashed; }
+.dot{ flex: none; width: 56px; height: 56px; }
 
 /* ---------- Så beställer du ---------- */
 .steps{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
@@ -149,19 +153,20 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 }
 .delivery{ margin-top: 40px; padding-top: 24px; border-top: 3px solid rgba(82,40,52,0.35); font-size: 1.15rem; }
 
-/* ---------- Fredagsfika ---------- */
-.fredagsfika{ background: var(--wine); color: #fff; }
-.fredagsfika h2{ color: var(--gold-light); }
-.fika-grid{ display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
-.fika-prices{ margin-top: 24px; display: flex; gap: 32px; flex-wrap: wrap; font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; }
-.fika-prices strong{ color: var(--gold-light); font-weight: 900; }
-.sep{ color: var(--gold); font-size: 1.6em; line-height: 0; vertical-align: -0.12em; margin: 0 6px; }
-.swish{ background: var(--gold); color: var(--ink); border-radius: 28px; padding: 28px 32px; }
-.label{ font-weight: 600; font-size: 0.9rem; letter-spacing: 0.09em; text-transform: uppercase; }
-.swish-nr{ font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1; margin: 10px 0; white-space: nowrap; }
-.swish-nr a{ text-decoration: none; }
+/* ---------- Kopiera-knapp (Swish-nummer) ---------- */
+.nowrap{ white-space: nowrap; }
+.copy{
+  font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer;
+  margin-left: 6px; padding: 4px 12px; border-radius: 999px;
+  border: 2px solid currentColor; background: transparent; color: var(--wine);
+  vertical-align: 0.1em;
+}
+.copy:hover{ background: rgba(82,40,52,0.08); }
+.kontakt .copy{ color: var(--gold-light); }
+.kontakt .copy:hover{ background: rgba(239,193,95,0.12); }
 
 /* ---------- Om oss ---------- */
+.om-oss{ background: var(--beige); }
 .om-oss p{ max-width: 40em; font-size: 1.2rem; }
 
 /* ---------- Kontakt ---------- */
@@ -196,13 +201,12 @@ footer{ background: var(--wine-deep); border-top: 1px solid rgba(227,226,220,0.1
   .nav-links.open{ opacity: 1; transform: none; pointer-events: auto; visibility: visible; }
   .nav-toggle{ display: block; }
   .hero{ padding: 120px 0 120px; }
-  .cookie-hero{ width: 220px; right: -70px; top: auto; bottom: -60px; }
-  .price-grid, .sort-grid, .steps, .fika-grid, .kontakt-grid{ grid-template-columns: 1fr; }
+  .cookie-hero{ width: 240px; right: -80px; top: auto; bottom: -70px; }
+  .price-grid, .sort-grid, .steps, .kontakt-grid{ grid-template-columns: 1fr; }
   .qr{ justify-self: center; }
 }
 @media (max-width: 480px){
   .wrap{ padding: 0 18px; }
   .logo img{ height: 38px; }
   .price-card{ padding: 22px; }
-  .swish{ padding: 22px; }
 }
