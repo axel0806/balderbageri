@@ -153,19 +153,6 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 }
 .delivery{ margin-top: 40px; padding-top: 24px; border-top: 3px solid rgba(82,40,52,0.35); font-size: 1.15rem; }
 
-/* ---------- Kopiera-knapp (Swish-nummer) ---------- */
-.nowrap{ white-space: nowrap; }
-.copy{
-  font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer;
-  margin-left: 6px; padding: 4px 12px; border-radius: 999px;
-  border: 2px solid currentColor; background: transparent; color: var(--wine);
-  vertical-align: 0.1em;
-}
-.copy:hover{ background: rgba(82,40,52,0.08); }
-.steps .copy{ display: block; margin: 12px 0 0; }
-.kontakt .copy{ color: var(--gold-light); }
-.kontakt .copy:hover{ background: rgba(239,193,95,0.12); }
-
 /* ---------- Om oss ---------- */
 /* Samma kräm som Vanliga frågor: ett lugnt block mellan Beställ nu och sidfoten */
 .om-oss{ padding-bottom: 0; }
