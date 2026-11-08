@@ -9,7 +9,7 @@ function setMenu(open) {
 }
 
 navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
-navLinks.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenu(false)));
+document.querySelectorAll('#navLinks a, .nav-cta-mobile').forEach((link) => link.addEventListener('click', () => setMenu(false)));
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
 
 // Färgen bakom sidan (syns vid överscroll och bakom iPhones verktygsfält):

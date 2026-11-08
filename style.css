@@ -79,6 +79,7 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
   font-weight: 600 !important;
 }
 .nav-cta:hover{ background: var(--gold-light); }
+.nav-cta-mobile{ display: none; text-decoration: none; font-size: 0.9rem; white-space: nowrap; }
 .nav-toggle{ display: none; background: none; border: 0; width: 32px; height: 22px; position: relative; cursor: pointer; padding: 0; }
 .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
   content: ''; position: absolute; left: 0; right: 0; height: 2px; background: var(--cream);
@@ -197,6 +198,9 @@ footer{ background: var(--wine-deep); padding: 24px 0 calc(24px + env(safe-area-
   }
   .nav-links.open{ opacity: 1; transform: none; pointer-events: auto; visibility: visible; }
   .nav-toggle{ display: block; }
+  /* Beställ-knappen ligger bredvid hamburgaren, inte gömd i menyn */
+  .nav-cta-item{ display: none; }
+  .nav-cta-mobile{ display: inline-block; margin-left: auto; margin-right: 14px; padding: 8px 16px; }
   .hero{ padding: 120px 0 120px; }
   .cookie-hero{ width: 240px; right: -80px; top: auto; bottom: -70px; }
   .price-grid, .sort-grid, .steps, .kontakt-grid{ grid-template-columns: 1fr; }
