@@ -70,7 +70,7 @@ Pushing to `main` deploys via Vercel. Treat `main` as production: don't commit h
 ## Boundaries
 
 - Don't add dependencies, build tooling, or a framework without asking first.
-- Don't add analytics, cookies or trackers (GDPR).
+- Don't add analytics, cookies or trackers (GDPR). The one exception is Vercel Web Analytics (the `/_vercel/insights/script.js` tag at the end of `index.html`), which is cookie-free. Ad links use `?utm_source=…` so it can attribute visits.
 - Never commit secrets or API keys.
 - Don't reference anything in `assets/legacy-assets/`.
 
