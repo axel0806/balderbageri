@@ -19,8 +19,8 @@ These Claude artifacts belong to the business and describe the same products, pr
 | Artifact | What it is |
 | --- | --- |
 | [Affärsplan – Balder Bageri UF](https://claude.ai/artifact/BXozTzDyttkhK3qZS3mjPZ) | Business plan (Claude Docs document) |
-| [Balder Bageri Flyer A7](https://claude.ai/artifact/KnijXfmihD9SqDmF1fL5of) | A7 flyer design; the source of `assets/inspiration/Balder Bageri Flyer A7.html` |
-| [Fredagsfika – bordsskylt](https://claude.ai/artifact/NYqCwYVpbZG8BcBEX2Y9uK) | A4 table sign for selling in person; the source of `assets/inspiration/Fredagsfika – bordsskylt – Bordsskylt A4.html` |
+| [Balder Bageri Flyer A7](https://claude.ai/artifact/KnijXfmihD9SqDmF1fL5of) | A7 flyer design; the source of `../inspiration/Balder Bageri Flyer A7.html` |
+| [Fredagsfika – bordsskylt](https://claude.ai/artifact/NYqCwYVpbZG8BcBEX2Y9uK) | A4 table sign for selling in person; the source of `../inspiration/Fredagsfika – bordsskylt – Bordsskylt A4.html` |
 
 Exported copies and other files are kept outside this repository, in the sibling folder `../docs` (`UF/docs` next to `UF/balderbageri`). They are not published on the site or on GitHub.
 
@@ -36,13 +36,15 @@ If prices, sorts, delivery details or contact details change, keep the website a
 
 ## About this repository
 
-A plain static one-page site with no framework, bundler or package manager. The design follows the company's printed flyers (`assets/inspiration/`).
+A plain static one-page site with no framework, bundler or package manager. The design follows the company's printed flyers (kept outside the repo in `../inspiration/`).
 
 ```
 index.html        # Page markup, meta tags and JSON-LD structured data
 style.css         # All styling (design tokens as CSS custom properties)
 script.js         # Mobile navigation toggle
 robots.txt        # Crawler rules and sitemap pointer
+vercel.json       # Redirects the old bitk-kappa.vercel.app host to the live domain
+googleeb98a78338a1963e.html  # Google Search Console verification
 sitemap.xml       # Single-page sitemap (update lastmod when content changes)
 site.webmanifest  # Web app metadata
 favicon.svg, icon-*.png, apple-touch-icon.png, og-image.png
