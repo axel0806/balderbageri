@@ -170,6 +170,13 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .om-oss{ background: var(--beige); }
 .om-oss p{ max-width: 40em; font-size: 1.2rem; }
 
+/* ---------- Vanliga frågor ---------- */
+.faq-list{ max-width: 44em; }
+.faq-list > div{ padding: 20px 0; border-top: 3px solid rgba(82,40,52,0.35); }
+.faq-list > div:last-child{ border-bottom: 3px solid rgba(82,40,52,0.35); }
+.faq-list h3{ font-size: clamp(1.25rem, 2.6vw, 1.5rem); color: var(--wine); margin-bottom: 6px; }
+.faq-list p{ font-size: 1.1rem; }
+
 /* ---------- Kontakt ---------- */
 .kontakt{ background: var(--wine-deep); color: #fff; }
 .kontakt h2{ color: var(--gold-light); }
