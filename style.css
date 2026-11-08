@@ -167,7 +167,8 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .kontakt .copy:hover{ background: rgba(239,193,95,0.12); }
 
 /* ---------- Om oss ---------- */
-.om-oss{ background: var(--beige); }
+/* Samma kräm som Vanliga frågor: ett lugnt block mellan Beställ nu och sidfoten */
+.om-oss{ padding-bottom: 0; }
 .om-oss p{ max-width: 40em; font-size: 1.2rem; }
 
 /* ---------- Vanliga frågor ---------- */
@@ -178,7 +179,8 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .faq-list p{ font-size: 1.1rem; }
 
 /* ---------- Kontakt ---------- */
-.kontakt{ background: var(--wine-deep); color: #fff; }
+/* Samma vinröd som menyn och Stor påse, så att blocket skiljer sig från sidfoten */
+.kontakt{ background: var(--wine); color: #fff; }
 .kontakt h2{ color: var(--gold-light); }
 .kontakt-grid{ display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
 .kontakt-info{ list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-weight: 600; font-size: 1.2rem; }
@@ -189,7 +191,7 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .qr span{ font-weight: 600; font-size: 0.9rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--beige); }
 
 /* ---------- Sidfot ---------- */
-footer{ background: var(--wine-deep); border-top: 1px solid rgba(227,226,220,0.18); padding: 24px 0 calc(24px + env(safe-area-inset-bottom)); }
+footer{ background: var(--wine-deep); padding: 24px 0 calc(24px + env(safe-area-inset-bottom)); }
 .footer-row{ display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-row, .footer-row a{ color: rgba(245,239,227,0.7); font-size: 0.85rem; }
 .footer-row a{ text-decoration: none; }
