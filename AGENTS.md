@@ -67,7 +67,7 @@ Pushing to `main` deploys via Vercel. Treat `main` as production: don't commit h
 
 ### SEO
 - Keep title, meta description, canonical, Open Graph tags and the `Bakery` JSON-LD consistent with the visible page. When prices, areas or contact details change, update the page, the JSON-LD and `lastmod` in `sitemap.xml` together.
-- Don't publish a street address (home bakery).
+- The street address (Granbackavägen 96, 931 42) is in the `Bakery` JSON-LD only, by the maintainer's choice. Don't show it in the visible page text.
 
 ## Boundaries
 

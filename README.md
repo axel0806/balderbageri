@@ -67,7 +67,7 @@ Then visit http://localhost:8000.
 
 ## SEO
 
-The page has a unique title and description, a canonical URL, Open Graph tags, and `Bakery` JSON-LD (no street address, since the bakery is run from home). When content, prices or delivery areas change, update the page text, the JSON-LD in `index.html` and `lastmod` in `sitemap.xml` together.
+The page has a unique title and description, a canonical URL, Open Graph tags, and `Bakery` JSON-LD (with the street address in the structured data only, not in the visible text). When content, prices or delivery areas change, update the page text, the JSON-LD in `index.html` and `lastmod` in `sitemap.xml` together.
 
 ## Deployment
 
