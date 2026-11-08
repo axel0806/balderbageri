@@ -14,11 +14,13 @@ Keep it that way unless the maintainer explicitly asks otherwise.
 ## Repository layout
 
 ```
-assets/            # Logos, Instagram QR; inspiration/ = flyer designs, legacy-assets/ = old IT site (unused)
+assets/            # Logos, Instagram QR; legacy-assets/ = old IT site (unused)
 index.html         # All markup, meta tags and JSON-LD
 style.css          # All styling (design tokens as CSS custom properties)
 script.js          # Mobile nav toggle only
 robots.txt, sitemap.xml, site.webmanifest, favicon.svg, icon-*.png, og-image.png
+vercel.json        # Redirects the old bitk-kappa.vercel.app host to the live domain
+googleeb98a78338a1963e.html  # Google Search Console verification, keep
 README.md
 LICENSE.md
 ```
@@ -46,8 +48,8 @@ Pushing to `main` deploys via Vercel. Treat `main` as production: don't commit h
 
 ### Language and content
 - The site is in **Swedish** (`<html lang="sv">`). All user-facing copy must be Swedish. Code comments and commit messages may be in English.
-- Section anchors: `#top`, `#lador`, `#sorter`, `#bestall`, `#om-oss`, `#kontakt`. Don't rename them without updating nav links, CSS and JS together.
-- Don't change factual claims (prices, delivery days and areas, phone/Swish number, Instagram handle, founders, the footer note "ej ett registrerat aktiebolag") unless the user explicitly provides the new values. The flyers in `assets/inspiration/` are the source for the current ones.
+- Section anchors: `#top`, `#lador`, `#sorter`, `#bestall`, `#om-oss`, `#vanliga-fragor`, `#kontakt`. Don't rename them without updating nav links, CSS and JS together.
+- Don't change factual claims (prices, delivery days and areas, phone/Swish number, Instagram handle, founders, the footer note "ej ett registrerat aktiebolag") unless the user explicitly provides the new values. The flyers in `../inspiration/` (outside the repo) are the source for the current ones.
 - Keep the brand name spelled exactly "Balder Bageri" in title, h1, logo alt text, JSON-LD and footer.
 
 ### HTML
