@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Balder Bageri – hembakade kakor med hemleverans i Skellefteå</title>
-<meta name="description" content="Balder Bageri UF bakar kakor i Skellefteå och cyklar hem dem till dig. Kakpåsar från 79 kr, gratis hemleverans i hela Skellefteå. Beställ via Instagram eller sms.">
+<meta name="description" content="Balder Bageri bakar kakor i Skellefteå och cyklar hem dem till dig. Kakpåsar från 79 kr, gratis hemleverans i hela Skellefteå. Beställ via Instagram eller sms.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#522834">
 <link rel="canonical" href="https://balderbageri.sigmaaxel.se/">
 
@@ -19,6 +20,10 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Balder Bageri UF – nybakat, hemlevererat">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Balder Bageri – nybakat hem till dörren">
+<meta name="twitter:description" content="Hembakade kakor i Skellefteå, bakade samma dag och levererade till dig. Kakpåsar från 79 kr.">
+<meta name="twitter:image" content="https://balderbageri.sigmaaxel.se/og-image.png">
+<meta name="twitter:image:alt" content="Balder Bageri UF – nybakat, hemlevererat">
 
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -38,6 +43,7 @@
       "@id": "https://balderbageri.sigmaaxel.se/#website",
       "url": "https://balderbageri.sigmaaxel.se/",
       "name": "Balder Bageri",
+      "alternateName": ["Balder Bageri UF", "Balder Bageri Skellefteå"],
       "inLanguage": "sv-SE",
       "publisher": { "@id": "https://balderbageri.sigmaaxel.se/#bakery" }
     },
@@ -50,9 +56,28 @@
       "url": "https://balderbageri.sigmaaxel.se/",
       "image": "https://balderbageri.sigmaaxel.se/og-image.png",
       "logo": "https://balderbageri.sigmaaxel.se/icon-512.png",
+      "slogan": "Nybakat hem till dörren.",
       "telephone": "+46702211696",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+46702211696",
+        "availableLanguage": "sv",
+        "url": "https://ig.me/m/balderbageri"
+      },
       "priceRange": "79–149 kr",
+      "currenciesAccepted": "SEK",
+      "paymentAccepted": "Swish",
       "servesCuisine": "Kakor",
+      "potentialAction": {
+        "@type": "OrderAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://ig.me/m/balderbageri",
+          "actionPlatform": "https://schema.org/MobileWebPlatform"
+        },
+        "deliveryMethod": "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"
+      },
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Skellefteå",
@@ -79,17 +104,68 @@
             "name": "Liten kakpåse",
             "description": "6 kakor, valfri sort",
             "priceCurrency": "SEK",
-            "price": "79"
+            "price": "79",
+            "availability": "https://schema.org/InStock",
+            "url": "https://balderbageri.sigmaaxel.se/#lador"
           },
           {
             "@type": "Offer",
             "name": "Stor kakpåse",
             "description": "12 kakor, upp till 3 sorter",
             "priceCurrency": "SEK",
-            "price": "149"
+            "price": "149",
+            "availability": "https://schema.org/InStock",
+            "url": "https://balderbageri.sigmaaxel.se/#lador"
           }
         ]
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://balderbageri.sigmaaxel.se/#faq",
+      "inLanguage": "sv-SE",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hur beställer jag?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Skicka ett DM till @balderbageri på Instagram eller ett sms till 070-221 16 96. Skriv vilken påse och vilka sorter du vill ha. Vi tar inte emot samtal." }
+        },
+        {
+          "@type": "Question",
+          "name": "Vad kostar det?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En liten påse med 6 kakor, valfri sort, kostar 79 kr. En stor påse med 12 kakor, upp till 3 sorter, kostar 149 kr. Leveransen är gratis." }
+        },
+        {
+          "@type": "Question",
+          "name": "Levererar ni hem till mig?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ja, om du bor i Skellefteå. Vi cyklar ut kakorna gratis i hela Skellefteå, men inte till byar utanför, som Kåge och Skelleftehamn." }
+        },
+        {
+          "@type": "Question",
+          "name": "När kommer kakorna?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Vi levererar onsdag, fredag och lördag mellan kl. 16 och 19. Kakorna bakas samma dag som vi levererar dem." }
+        },
+        {
+          "@type": "Question",
+          "name": "Hur sent kan jag beställa?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Senast kl. 20 dagen före leveransdagen. Vill du ha kakor på fredag beställer du alltså senast torsdag kl. 20." }
+        },
+        {
+          "@type": "Question",
+          "name": "Hur betalar jag?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Med Swish i förskott till 070-221 16 96, samma nummer som du sms:ar till." }
+        },
+        {
+          "@type": "Question",
+          "name": "Vilka sorter finns?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Chocolate chip cookies, kolakakor, havrekakor och hallongrottor. Runt jul och alla hjärtans dag bakar vi också kladdkakecookies. Allt bakas hemma hos oss i Skellefteå." }
+        },
+        {
+          "@type": "Question",
+          "name": "Vad innehåller kakorna?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Varje påse märks med ingredienser, allergener och bakdatum. Vi har inga nötter i grundsortimentet." }
+        }
+      ]
     }
   ]
 }
