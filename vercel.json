@@ -3,13 +3,7 @@
     {
       "source": "/:path(.*)",
       "has": [{ "type": "host", "value": "balderbageri.sigmaaxel.se" }],
-      "destination": "https://balderbageri.se/:path",
-      "permanent": true
-    },
-    {
-      "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "www.balderbageri.se" }],
-      "destination": "https://balderbageri.se/:path",
+      "destination": "https://www.balderbageri.se/:path",
       "permanent": true
     }
   ],

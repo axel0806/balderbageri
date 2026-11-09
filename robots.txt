@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://balderbageri.se/sitemap.xml
+Sitemap: https://www.balderbageri.se/sitemap.xml
