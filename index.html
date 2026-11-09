@@ -241,6 +241,7 @@
       <form class="order" id="orderForm" aria-labelledby="order-title">
         <h3 id="order-title" class="order-title">Beställ online</h3>
 
+        <div id="orderSteps">
         <fieldset class="pkg-fieldset">
           <legend>1. Välj påse</legend>
           <label class="pkg">
@@ -302,6 +303,12 @@
         <p class="order-msg" id="orderMsg" role="status" aria-live="polite">Välj en påse först.</p>
         <button type="submit" class="btn btn-primary order-pay" id="payBtn" disabled>Betala med kort</button>
         <p class="order-note">Du kan också betala med Swish, se <a href="#bestall">Så beställer du</a>.</p>
+        </div>
+
+        <div id="checkoutWrap" hidden>
+          <button type="button" id="backBtn" class="back-btn">← Ändra beställningen</button>
+          <div id="checkout"></div>
+        </div>
       </form>
     </div>
   </section>

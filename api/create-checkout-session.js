@@ -1,5 +1,6 @@
 // Vercel serverless function: POST /api/create-checkout-session
-// Creates a Stripe Checkout Session (hosted, one-time payment) for one cookie bag.
+// Creates a Stripe Checkout Session (embedded, one-time payment) for one cookie bag.
+// Returns a client_secret that the page uses to mount the embedded checkout (order.js).
 // The price and the sort mix are checked here, on the server. The browser's numbers are never trusted.
 // Env: STRIPE_SECRET_KEY (sk_test_... while testing, sk_live_... only after go-live).
 
@@ -60,8 +61,8 @@ export default async function handler(req, res) {
   const params = new URLSearchParams();
   params.set('mode', 'payment');
   params.set('locale', 'sv');
-  params.set('success_url', `${SITE}/tack.html?session_id={CHECKOUT_SESSION_ID}`);
-  params.set('cancel_url', `${SITE}/#lador`);
+  params.set('ui_mode', 'embedded');
+  params.set('return_url', `${SITE}/tack.html?session_id={CHECKOUT_SESSION_ID}`);
   params.set('line_items[0][quantity]', '1');
   params.set('line_items[0][price_data][currency]', 'sek');
   params.set('line_items[0][price_data][unit_amount]', String(pkg.amountOre));
@@ -92,10 +93,10 @@ export default async function handler(req, res) {
   }
 
   const data = await stripeRes.json().catch(() => ({}));
-  if (!stripeRes.ok || !data.url) {
+  if (!stripeRes.ok || !data.client_secret) {
     console.error('Stripe error', stripeRes.status, data?.error?.type, data?.error?.code);
     return res.status(502).json({ error: 'Betalningen kunde inte startas.' });
   }
 
-  return res.status(200).json({ url: data.url });
+  return res.status(200).json({ clientSecret: data.client_secret });
 }

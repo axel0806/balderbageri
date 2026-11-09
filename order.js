@@ -1,11 +1,17 @@
-// Beställningsformulär: välj påse, välj kakor och skicka vidare till Stripe Checkout.
+// Beställningsformulär: välj påse, välj kakor och betala i en inbäddad Stripe Checkout.
 // Serversidan kontrollerar pris och antal igen (api/create-checkout-session.js).
 (() => {
+  // Publik nyckel (pk_...). Den är inte hemlig, men den hör till kontot.
+  const STRIPE_PUBLISHABLE_KEY = 'pk_test_REPLACE_ME';
   const SIZES = { liten: 6, stor: 12 };
 
   const form = document.getElementById('orderForm');
   if (!form) return;
 
+  const stepsEl = document.getElementById('orderSteps');
+  const checkoutWrap = document.getElementById('checkoutWrap');
+  const checkoutEl = document.getElementById('checkout');
+  const backBtn = document.getElementById('backBtn');
   const sortFieldset = document.getElementById('sortFieldset');
   const countEl = document.getElementById('count');
   const msg = document.getElementById('orderMsg');
@@ -14,6 +20,23 @@
 
   const counts = {};
   steppers.forEach((btn) => { counts[btn.dataset.sort] = 0; });
+
+  let checkout = null;
+  let stripePromise = null;
+
+  // Stripe.js laddas först när kunden klickar på betala, och bara från Stripe.
+  function loadStripe() {
+    if (!stripePromise) {
+      stripePromise = new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://js.stripe.com/v3/';
+        script.onload = () => resolve(window.Stripe(STRIPE_PUBLISHABLE_KEY));
+        script.onerror = () => { stripePromise = null; reject(new Error('stripe-load')); };
+        document.head.appendChild(script);
+      });
+    }
+    return stripePromise;
+  }
 
   const selectedPkg = () => {
     const checked = form.querySelector('input[name="pkg"]:checked');
@@ -46,9 +69,23 @@
     else msg.textContent = `Välj ${s - t} kakor till.`;
   }
 
+  function showSteps() {
+    if (checkout) { checkout.destroy(); checkout = null; }
+    checkoutEl.replaceChildren();
+    checkoutWrap.hidden = true;
+    stepsEl.hidden = false;
+    render();
+  }
+
+  function showCheckout() {
+    stepsEl.hidden = true;
+    checkoutWrap.hidden = false;
+    checkoutWrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   form.querySelectorAll('input[name="pkg"]').forEach((input) => {
     input.addEventListener('change', () => {
-      // Antalet nollställs när man byter påse, eftersom en stor påse kan inte rymmas i en liten.
+      // Antalet nollställs när man byter påse, eftersom en stor påse inte ryms i en liten.
       Object.keys(counts).forEach((key) => { counts[key] = 0; });
       render();
     });
@@ -65,6 +102,8 @@
     });
   });
 
+  backBtn.addEventListener('click', showSteps);
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const pkg = selectedPkg();
@@ -76,7 +115,7 @@
     }
 
     payBtn.disabled = true;
-    msg.textContent = 'Skickar dig till betalningen…';
+    msg.textContent = 'Startar betalningen…';
 
     try {
       const res = await fetch('/api/create-checkout-session', {
@@ -85,8 +124,13 @@
         body: JSON.stringify({ pkg, sorts }),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.url) throw new Error(data.error || 'Något gick fel.');
-      window.location.href = data.url;
+      if (!res.ok || !data.clientSecret) throw new Error(data.error || 'Något gick fel.');
+
+      const stripe = await loadStripe();
+      if (checkout) checkout.destroy();
+      checkout = await stripe.initEmbeddedCheckout({ clientSecret: data.clientSecret });
+      showCheckout();
+      checkout.mount('#checkout');
     } catch (err) {
       render();
       msg.textContent = 'Det gick inte att starta betalningen. Försök igen, eller beställ via Instagram eller sms.';

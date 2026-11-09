@@ -166,6 +166,9 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .order-pay{ border: 0; cursor: pointer; font: inherit; }
 .order-pay:disabled{ background: #9b8a8f; cursor: not-allowed; transform: none; }
 .order-note{ margin-top: 16px; color: var(--muted); font-size: 0.95rem; }
+#checkoutWrap[hidden], #orderSteps[hidden]{ display: none; }
+.back-btn{ background: none; border: 0; padding: 8px 0; margin-bottom: 16px; font: inherit; font-weight: 600; color: var(--wine); cursor: pointer; text-decoration: underline; }
+#checkout{ min-height: 360px; background: #fff; border-radius: 20px; padding: 8px; }
 
 /* ---------- Sorter ---------- */
 .sorter{ background: var(--beige); }
