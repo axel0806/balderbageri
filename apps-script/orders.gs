@@ -17,7 +17,7 @@
 const SHEET_NAME = 'Ordrar';
 const HEADERS = [
   'Datum', 'Ordernummer', 'Påse', 'Sorter', 'Belopp (kr)',
-  'Namn', 'E-post', 'Telefon', 'Gatuadress', 'Adress 2', 'Postnummer', 'Ort', 'Betalning',
+  'Namn', 'E-post', 'Telefon', 'Gatuadress', 'Adress 2', 'Postnummer', 'Ort', 'Betalning', 'Kundens ordernummer',
 ];
 
 function setupSheet() {
@@ -51,6 +51,9 @@ function doPost(e) {
 
   const sheet = getSheet_();
   if (sheet.getLastRow() === 0) setupSheet();
+  // Older sheets lack the newest header. Add it so the column is labelled.
+  const lastHeader = HEADERS.length;
+  if (!sheet.getRange(1, lastHeader).getValue()) sheet.getRange(1, lastHeader).setValue(HEADERS[lastHeader - 1]).setFontWeight('bold');
 
   // Stripe kan skicka samma händelse flera gånger. Skriv inte samma order två gånger.
   const existing = sheet.getLastRow() > 1
@@ -73,6 +76,7 @@ function doPost(e) {
     order.postcode,
     order.city,
     'Betald (kort)',
+    order.orderNumber || '',
   ]);
 
   const subject = `Ny beställning: ${pkgName} (${order.amount} kr)`;
@@ -89,7 +93,8 @@ function doPost(e) {
     `Adress: ${order.street} ${order.street2}`.trim(),
     `Postnummer och ort: ${order.postcode} ${order.city}`.trim(),
     '',
-    `Ordernummer: ${order.orderId}`,
+    `Ordernummer (kund): ${order.orderNumber}`,
+    `Stripe-id: ${order.orderId}`,
     'Betalningen syns även i Stripe-dashboarden.',
   ].join('\n');
   MailApp.sendEmail(Session.getEffectiveUser().getEmail(), subject, body);

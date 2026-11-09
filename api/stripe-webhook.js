@@ -5,6 +5,7 @@
 // Env: STRIPE_WEBHOOK_SECRET (whsec_...), APPS_SCRIPT_URL, APPS_SCRIPT_TOKEN.
 
 import crypto from 'node:crypto';
+import { orderNumber } from './_order-number.js';
 
 // The raw body is needed to check the Stripe signature, so Vercel must not parse it.
 export const config = { api: { bodyParser: false } };
@@ -59,6 +60,7 @@ export default async function handler(req, res) {
   const order = {
     token: process.env.APPS_SCRIPT_TOKEN,
     orderId: s.id,
+    orderNumber: orderNumber(s.id),
     created: new Date(s.created * 1000).toISOString(),
     package: s.metadata?.package ?? '',
     sorts: s.metadata?.sorts ?? '',

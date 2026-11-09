@@ -19,6 +19,7 @@
     <div class="wrap">
       <h1>Tack för din beställning!</h1>
       <p class="tack-lead">Din betalning är mottagen. Vi bakar och levererar onsdag, fredag eller lördag kl. 16–19.</p>
+      <p class="tack-order" id="orderNumberBox" hidden>Ditt ordernummer: <strong id="orderNumber"></strong><span>Spara numret och ange det om du kontaktar oss.</span></p>
       <p>Har du frågor kan du skriva till oss på Instagram <a href="https://ig.me/m/balderbageri" target="_blank" rel="noopener">@balderbageri</a> eller sms:a 070-221 16 96.</p>
       <p class="tack-back"><a class="btn btn-outline" href="/">Tillbaka till startsidan</a></p>
     </div>
@@ -30,6 +31,21 @@
     <span>© 2026 Balder Bageri UF. Drivs av elever inom Ung Företagsamhet, ej ett registrerat aktiebolag.</span>
   </div>
 </footer>
+
+<script>
+(() => {
+  const id = new URLSearchParams(location.search).get('session_id');
+  if (!id) return;
+  fetch('/api/order-status?session_id=' + encodeURIComponent(id))
+    .then((r) => (r.ok ? r.json() : Promise.reject()))
+    .then((d) => {
+      if (!d.orderNumber) return;
+      document.getElementById('orderNumber').textContent = d.orderNumber;
+      document.getElementById('orderNumberBox').hidden = false;
+    })
+    .catch(() => {});
+})();
+</script>
 
 </body>
 </html>
