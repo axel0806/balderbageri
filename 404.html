@@ -2,23 +2,50 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Sidan finns inte – Balder Bageri</title>
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#522834">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+
+<header id="site-header">
+  <div class="wrap">
+    <nav aria-label="Huvudmeny">
+      <a href="/" class="logo" aria-label="Balder Bageri, till startsidan">
+        <img src="/assets/balder-logga-vit.svg" alt="Balder Bageri UF" width="190" height="53">
+      </a>
+      <a href="/#kontakt" class="nav-cta">Beställ</a>
+    </nav>
+  </div>
+</header>
+
 <main>
-  <section class="hero">
+  <section class="hero notfound">
+    <div class="cookie cookie-hero" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
     <div class="wrap">
-      <p class="hero-sub">404</p>
-      <h2 style="color:var(--cream)">Den här sidan finns inte.</h2>
+      <p class="nf-code" aria-hidden="true">404</p>
+      <h1><span class="h1-main">Kakan tog slut.</span></h1>
+      <p class="hero-sub">Sidan du letar efter finns inte, men kakorna gör det. Gå tillbaka till startsidan och välj en påse.</p>
       <div class="hero-actions">
-        <a href="/" class="btn btn-primary">Till Balder Bageri</a>
+        <a href="/" class="btn btn-primary">Till startsidan</a>
+        <a href="/#lador" class="btn btn-outline">Kakpåsar från 79 kr</a>
       </div>
     </div>
   </section>
 </main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Balder Bageri UF. Drivs av elever inom Ung Företagsamhet, ej ett registrerat aktiebolag.</span>
+    <a href="/">Till startsidan</a>
+  </div>
+</footer>
+
 </body>
 </html>
