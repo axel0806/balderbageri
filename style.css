@@ -166,8 +166,10 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .order-pay:disabled{ background: #9b8a8f; cursor: not-allowed; transform: none; }
 .order-note{ margin-top: 16px; color: var(--muted); font-size: 0.95rem; }
 #checkoutWrap[hidden], #orderSteps[hidden]{ display: none; }
-.back-btn{ background: none; border: 0; padding: 8px 0; margin-bottom: 16px; font: inherit; font-weight: 600; color: var(--wine); cursor: pointer; text-decoration: underline; }
-#checkout{ min-height: 360px; background: #fff; border-radius: 20px; padding: 8px; }
+.back-btn{ background: none; border: 3px solid var(--wine); border-radius: 999px; padding: 10px 22px; margin-bottom: 20px; font: inherit; font-weight: 600; color: var(--wine); cursor: pointer; }
+.back-btn:hover{ background: var(--wine); color: #fff; }
+#checkout{ min-height: 360px; background: #fff; border: 3px solid var(--wine); border-radius: 28px; padding: 20px; }
+@media (max-width: 600px){ #checkout{ padding: 12px; border-radius: 20px; } }
 
 /* ---------- Sorter ---------- */
 .sorter{ background: var(--beige); }

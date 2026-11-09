@@ -5,19 +5,29 @@
   const STRIPE_PUBLISHABLE_KEY = 'pk_test_51UZp3RBAuGLWdkFjLKyXpkMWf7Y2CrvDGMEiSisG9AwRpGWFzgx4XJ6C7pDzCxQhP0ZiN2CZiyBLApVJqr5ZPvq900DiEN9CUU';
   const SIZES = { liten: 6, stor: 12 };
   const APPEARANCE = {
-    theme: 'stripe',
-    labels: 'auto',
+    theme: 'flat',
+    labels: 'above',
     inputs: 'spaced',
     variables: {
-      borderRadius: '4px',
+      borderRadius: '12px',
       colorBackground: '#ffffff',
-      colorDanger: '#df1b41',
-      colorPrimary: '#0570de',
-      colorSuccess: '#00c853',
-      colorText: '#30313d',
+      colorDanger: '#b3261e',
+      colorPrimary: '#522834', // wine
+      colorSuccess: '#2e7d32',
+      colorText: '#2A1A1D', // ink
+      colorTextSecondary: '#6B5F58', // muted
+      colorTextPlaceholder: '#9b8a8f',
       fontFamily: 'default',
       fontSizeBase: '16px',
       spacingUnit: '4px',
+    },
+    rules: {
+      '.Input': { border: '2px solid rgba(82, 40, 52, 0.35)', boxShadow: 'none', padding: '14px' },
+      '.Input:focus': { border: '2px solid #522834', boxShadow: '0 0 0 3px #E1A43A' },
+      '.Label': { fontWeight: '600', color: '#522834' },
+      '.Tab': { border: '2px solid rgba(82, 40, 52, 0.35)', boxShadow: 'none' },
+      '.Tab--selected': { border: '2px solid #522834', backgroundColor: '#F5EFE3', color: '#522834' },
+      '.Block': { border: '2px solid rgba(82, 40, 52, 0.35)', boxShadow: 'none' },
     },
   };
 
