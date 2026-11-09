@@ -31,7 +31,7 @@
 }
 
 *{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; scroll-padding-top: 80px; background: linear-gradient(var(--wine) 50%, var(--wine-deep) 50%); }
+html{ scroll-behavior: smooth; scroll-padding-top: 80px; background-color: var(--wine-deep); background-image: linear-gradient(var(--wine) 0 50vh, transparent 50vh); background-repeat: no-repeat; }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   *{ transition-duration: 0.001ms !important; }
@@ -90,6 +90,7 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .nav-cta{
   background: var(--gold);
   color: var(--ink) !important;
+  text-decoration: none;
   padding: 9px 20px;
   border-radius: 999px;
   font-weight: 600 !important;
