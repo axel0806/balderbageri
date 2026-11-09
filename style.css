@@ -129,6 +129,14 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .btn-outline{ color: var(--wine); }
 .btn-outline:hover{ background: rgba(82,40,52,0.08); }
 
+/* ---------- 404 ---------- */
+.notfound{ min-height: calc(100vh - 78px); padding-top: 170px; }
+.nf-code{
+  font-family: var(--font-display); font-weight: 900; color: var(--cookie);
+  font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: 0.08em; margin-bottom: 14px;
+}
+.notfound .h1-main{ max-width: 9ch; color: var(--wine); }
+
 /* ---------- Påsar (id/klass heter fortfarande lador) ---------- */
 .lador{ padding-top: 40px; }
 .price-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
