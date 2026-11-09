@@ -182,6 +182,7 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 /* Samma kräm som Vanliga frågor: ett lugnt block mellan Beställ nu och sidfoten */
 .om-oss{ padding-bottom: 0; }
 .om-oss p{ max-width: 40em; font-size: 1.2rem; }
+.om-oss p + p{ margin-top: 1em; }
 
 /* ---------- Vanliga frågor ---------- */
 .faq-list{ max-width: 44em; }
