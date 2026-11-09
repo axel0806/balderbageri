@@ -61,7 +61,10 @@ export default async function handler(req, res) {
   const params = new URLSearchParams();
   params.set('mode', 'payment');
   params.set('locale', 'sv');
-  params.set('ui_mode', 'embedded');
+  params.set('ui_mode', 'form');
+  params.set('billing_address_collection', 'auto');
+  params.set('submit_type', 'auto');
+  params.set('integration_identifier', 'custom_embedded_web_0002');
   params.set('return_url', `${SITE}/tack.html?session_id={CHECKOUT_SESSION_ID}`);
   params.set('line_items[0][quantity]', '1');
   params.set('line_items[0][price_data][currency]', 'sek');
@@ -70,9 +73,9 @@ export default async function handler(req, res) {
   params.set('line_items[0][price_data][tax_behavior]', 'inclusive');
   params.set('line_items[0][price_data][product_data][name]', pkg.label);
   params.set('line_items[0][price_data][product_data][description]', breakdown);
-  params.set('automatic_tax[enabled]', 'true'); // needs Stripe Tax set up with a Swedish origin address
+  params.set('automatic_tax[enabled]', 'false');
   params.set('shipping_address_collection[allowed_countries][0]', 'SE'); // delivery address
-  params.set('phone_number_collection[enabled]', 'true');
+  params.set('phone_number_collection[enabled]', 'false');
   params.set('metadata[package]', pkgKey);
   params.set('metadata[sorts]', sortsMeta);
   params.set('metadata[source]', 'hemsida');
@@ -83,6 +86,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${process.env.STRIPE_SECRET_KEY}`,
+        'Stripe-Version': '2026-03-25.dahlia', // required for ui_mode "form"
         'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: params,
@@ -98,5 +102,5 @@ export default async function handler(req, res) {
     return res.status(502).json({ error: 'Betalningen kunde inte startas.' });
   }
 
-  return res.status(200).json({ clientSecret: data.client_secret });
+  return res.status(200).json({ client_secret: data.client_secret });
 }

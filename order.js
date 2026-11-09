@@ -4,6 +4,22 @@
   // Publik nyckel (pk_...). Den är inte hemlig, men den hör till kontot.
   const STRIPE_PUBLISHABLE_KEY = 'pk_test_51UZp3RBAuGLWdkFjLKyXpkMWf7Y2CrvDGMEiSisG9AwRpGWFzgx4XJ6C7pDzCxQhP0ZiN2CZiyBLApVJqr5ZPvq900DiEN9CUU';
   const SIZES = { liten: 6, stor: 12 };
+  const APPEARANCE = {
+    theme: 'stripe',
+    labels: 'auto',
+    inputs: 'spaced',
+    variables: {
+      borderRadius: '4px',
+      colorBackground: '#ffffff',
+      colorDanger: '#df1b41',
+      colorPrimary: '#0570de',
+      colorSuccess: '#00c853',
+      colorText: '#30313d',
+      fontFamily: 'default',
+      fontSizeBase: '16px',
+      spacingUnit: '4px',
+    },
+  };
 
   const form = document.getElementById('orderForm');
   if (!form) return;
@@ -29,7 +45,7 @@
     if (!stripePromise) {
       stripePromise = new Promise((resolve, reject) => {
         const script = document.createElement('script');
-        script.src = 'https://js.stripe.com/v3/';
+        script.src = 'https://js.stripe.com/dahlia/stripe.js';
         script.onload = () => resolve(window.Stripe(STRIPE_PUBLISHABLE_KEY));
         script.onerror = () => { stripePromise = null; reject(new Error('stripe-load')); };
         document.head.appendChild(script);
@@ -70,7 +86,7 @@
   }
 
   function showSteps() {
-    if (checkout) { checkout.destroy(); checkout = null; }
+    if (checkout) { checkout.destroy?.(); checkout = null; }
     checkoutEl.replaceChildren();
     checkoutWrap.hidden = true;
     stepsEl.hidden = false;
@@ -124,13 +140,25 @@
         body: JSON.stringify({ pkg, sorts }),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.clientSecret) throw new Error(data.error || 'Något gick fel.');
+      if (!res.ok || !data.client_secret) throw new Error(data.error || 'Något gick fel.');
 
       const stripe = await loadStripe();
-      if (checkout) checkout.destroy();
-      checkout = await stripe.initEmbeddedCheckout({ clientSecret: data.clientSecret });
+      if (checkout) checkout.destroy?.();
+      checkout = stripe.initCheckoutFormSdk({ clientSecret: data.client_secret, appearance: APPEARANCE });
       showCheckout();
-      checkout.mount('#checkout');
+      const paymentForm = checkout.createForm({ layout: 'expanded' });
+      paymentForm.mount('#checkout');
+
+      const loaded = await checkout.loadActions();
+      if (loaded.type === 'success') {
+        paymentForm.on('confirm', async (event) => {
+          try {
+            await loaded.actions.confirm({ formConfirmEvent: event });
+          } catch (error) {
+            console.error('Payment confirmation error:', error);
+          }
+        });
+      }
     } catch (err) {
       render();
       msg.textContent = 'Det gick inte att starta betalningen. Försök igen, eller beställ via Instagram eller sms.';
