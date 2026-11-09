@@ -2,7 +2,7 @@
 // Serversidan kontrollerar pris och antal igen (api/create-checkout-session.js).
 (() => {
   // Publik nyckel (pk_...). Den är inte hemlig, men den hör till kontot.
-  const STRIPE_PUBLISHABLE_KEY = 'pk_test_REPLACE_ME';
+  const STRIPE_PUBLISHABLE_KEY = 'pk_test_51UZp3RBAuGLWdkFjLKyXpkMWf7Y2CrvDGMEiSisG9AwRpGWFzgx4XJ6C7pDzCxQhP0ZiN2CZiyBLApVJqr5ZPvq900DiEN9CUU';
   const SIZES = { liten: 6, stor: 12 };
 
   const form = document.getElementById('orderForm');
