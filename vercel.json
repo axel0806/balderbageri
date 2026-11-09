@@ -2,8 +2,8 @@
   "redirects": [
     {
       "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "bitk-kappa.vercel.app" }],
-      "destination": "https://balderbageri.sigmaaxel.se/:path",
+      "has": [{ "type": "host", "value": "balderbageri.sigmaaxel.se" }],
+      "destination": "https://www.balderbageri.se/:path",
       "permanent": true
     }
   ],

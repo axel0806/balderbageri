@@ -2,7 +2,7 @@
 
 Website for **Balder Bageri UF**, a student-run company (UF-företag) in Skellefteå, Sweden. We bake cookies at home and deliver them the same day.
 
-**Live site:** https://balderbageri.sigmaaxel.se
+**Live site:** https://www.balderbageri.se
 
 ## About the company
 
@@ -43,7 +43,7 @@ index.html        # Page markup, meta tags and JSON-LD structured data
 style.css         # All styling (design tokens as CSS custom properties)
 script.js         # Mobile navigation toggle
 robots.txt        # Crawler rules and sitemap pointer
-vercel.json       # Redirects the old bitk-kappa.vercel.app host to the live domain
+vercel.json       # Redirects the old sigmaaxel.se subdomain to www.balderbageri.se
 googleeb98a78338a1963e.html  # Google Search Console verification
 sitemap.xml       # Single-page sitemap (update lastmod when content changes)
 site.webmanifest  # Web app metadata
