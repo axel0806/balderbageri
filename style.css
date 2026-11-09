@@ -31,7 +31,7 @@
 }
 
 *{ box-sizing: border-box; }
-html{ scroll-behavior: smooth; scroll-padding-top: 80px; background: var(--wine); }
+html{ scroll-behavior: smooth; scroll-padding-top: 80px; background: linear-gradient(var(--wine) 50%, var(--wine-deep) 50%); }
 @media (prefers-reduced-motion: reduce){
   html{ scroll-behavior: auto; }
   *{ transition-duration: 0.001ms !important; }
