@@ -132,54 +132,6 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .price-card-dark .price{ color: var(--gold-light); }
 .note{ margin-top: 24px; color: var(--muted); font-size: 0.95rem; }
 
-/* ---------- Beställningsformulär ---------- */
-.order{ margin-top: 56px; padding-top: 40px; border-top: 3px solid rgba(82,40,52,0.35); }
-.order-title{ font-family: var(--font-display); font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.4rem); color: var(--wine); margin-bottom: 24px; }
-.order fieldset{ border: 0; margin: 0 0 32px; padding: 0; min-width: 0; }
-.order legend{ font-weight: 600; font-size: 1.15rem; color: var(--wine); margin-bottom: 14px; padding: 0; }
-.count{ font-weight: 500; font-size: 0.95rem; color: var(--muted); margin-left: 8px; }
-.order fieldset:disabled{ opacity: 0.45; }
-.pkg-fieldset{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.pkg-fieldset legend{ grid-column: 1 / -1; }
-.pkg{
-  display: flex; align-items: center; gap: 12px; cursor: pointer;
-  border: 3px solid var(--wine); border-radius: 20px; padding: 16px 20px; font-size: 1.05rem;
-}
-.pkg input{ width: 22px; height: 22px; accent-color: var(--wine); flex: none; margin: 0; }
-.pkg:has(input:checked){ background: var(--wine); color: #fff; }
-.pkg:has(input:checked) strong{ color: var(--gold-light); }
-.picker{ list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-.picker-row{
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  border: 2px solid rgba(82,40,52,0.35); border-radius: 18px; padding: 10px 14px;
-}
-.picker-name{ font-weight: 600; font-size: 1.1rem; }
-.stepper{ display: flex; align-items: center; gap: 6px; flex: none; }
-.stepper button{
-  width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--wine);
-  background: #fff; color: var(--wine); font: inherit; font-size: 1.4rem; font-weight: 600; line-height: 1; cursor: pointer;
-}
-.stepper button:disabled{ opacity: 0.35; cursor: not-allowed; }
-.stepper output{ min-width: 36px; text-align: center; font-weight: 700; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
-.addr-fieldset{ display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; }
-.addr-fieldset legend{ grid-column: 1 / -1; }
-.field{ display: grid; gap: 6px; font-weight: 600; color: var(--wine); }
-.field-wide{ grid-column: 1 / -1; }
-.field input{
-  font: inherit; font-weight: 400; color: var(--ink); background: #fff;
-  border: 2px solid rgba(82,40,52,0.35); border-radius: 14px; padding: 12px 14px; min-height: 48px;
-}
-.field input:focus{ outline: 3px solid var(--gold); border-color: var(--wine); }
-.order-msg{ margin-bottom: 16px; color: var(--ink); font-weight: 500; }
-.order-pay{ border: 0; cursor: pointer; font: inherit; }
-.order-pay:disabled{ background: #9b8a8f; cursor: not-allowed; transform: none; }
-.order-note{ margin-top: 16px; color: var(--muted); font-size: 0.95rem; }
-#checkoutWrap[hidden], #orderSteps[hidden]{ display: none; }
-.back-btn{ background: none; border: 3px solid var(--wine); border-radius: 999px; padding: 10px 22px; margin-bottom: 20px; font: inherit; font-weight: 600; color: var(--wine); cursor: pointer; }
-.back-btn:hover{ background: var(--wine); color: #fff; }
-#checkout{ min-height: 360px; background: #fff; border: 3px solid var(--wine); border-radius: 28px; padding: 20px; }
-@media (max-width: 600px){ #checkout{ padding: 12px; border-radius: 20px; } }
-
 /* ---------- Sorter ---------- */
 .sorter{ background: var(--beige); }
 .sort-grid{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -257,18 +209,5 @@ footer{ background: var(--wine-deep); padding: 24px 0 calc(24px + env(safe-area-
   .wrap{ padding: 0 18px; }
   .logo img{ height: 38px; }
   .price-card{ padding: 22px; }
-  .pkg-fieldset{ grid-template-columns: 1fr; }
-  .picker-name{ font-size: 1rem; }
 }
 
-/* ---------- Tack-sidan ---------- */
-.tack{ min-height: 70vh; display: flex; align-items: center; padding: clamp(64px, 12vw, 128px) 0; }
-.tack .wrap{ max-width: 680px; text-align: center; }
-.tack h1{ font-size: clamp(2.4rem, 8vw, 4.2rem); line-height: 1; color: var(--wine); margin-bottom: 28px; }
-.tack-lead{ font-size: clamp(1.15rem, 2.6vw, 1.4rem); font-weight: 500; line-height: 1.45; margin: 0 0 24px; }
-.tack p{ line-height: 1.6; margin: 0 0 20px; }
-.tack-back{ margin-top: 40px; }
-.tack-order{ background: #fff; border: 3px solid var(--wine); border-radius: 24px; padding: 20px 24px; font-size: 1.15rem; }
-.tack-order[hidden]{ display: none; }
-.tack-order strong{ display: block; font-family: var(--font-display); font-size: clamp(2rem, 7vw, 3rem); letter-spacing: 0.04em; color: var(--wine); margin: 6px 0; }
-.tack-order span{ display: block; font-size: 0.95rem; color: var(--muted); }
