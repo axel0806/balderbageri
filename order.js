@@ -3,8 +3,6 @@
 (() => {
   // Publik nyckel (pk_...). Den är inte hemlig, men den hör till kontot.
   const STRIPE_PUBLISHABLE_KEY = 'pk_test_51UZp3RBAuGLWdkFjLKyXpkMWf7Y2CrvDGMEiSisG9AwRpGWFzgx4XJ6C7pDzCxQhP0ZiN2CZiyBLApVJqr5ZPvq900DiEN9CUU';
-  // Same font as the site. If Stripe ignores it, the form falls back to system-ui.
-  const FONTS = [{ cssSrc: 'https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap' }];
   const SIZES = { liten: 6, stor: 12 };
   const APPEARANCE = {
     theme: 'flat',
@@ -19,7 +17,7 @@
       colorText: '#2A1A1D', // ink
       colorTextSecondary: '#6B5F58', // muted
       colorTextPlaceholder: '#9b8a8f',
-      fontFamily: '"Instrument Sans", system-ui, sans-serif',
+      fontFamily: 'default',
       fontSizeBase: '16px',
       spacingUnit: '4px',
     },
@@ -156,7 +154,7 @@
 
       const stripe = await loadStripe();
       if (checkout) checkout.destroy?.();
-      checkout = stripe.initCheckoutFormSdk({ clientSecret: data.client_secret, appearance: APPEARANCE, fonts: FONTS });
+      checkout = stripe.initCheckoutFormSdk({ clientSecret: data.client_secret, appearance: APPEARANCE });
       showCheckout();
       const paymentForm = checkout.createForm({ layout: 'expanded' });
       paymentForm.mount('#checkout');
@@ -172,6 +170,7 @@
         });
       }
     } catch (err) {
+      console.error('Checkout error:', err);
       render();
       msg.textContent = 'Det gick inte att starta betalningen. Försök igen, eller beställ via Instagram eller sms.';
     }
