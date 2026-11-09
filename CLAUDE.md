@@ -42,6 +42,7 @@ below is specific to Claude Code.
   - Affärsplan – Balder Bageri UF (Claude Docs document): https://claude.ai/artifact/BXozTzDyttkhK3qZS3mjPZ
   - Balder Bageri Flyer A7 (design canvas, source of `../inspiration/Balder Bageri Flyer A7.html`): https://claude.ai/artifact/KnijXfmihD9SqDmF1fL5of
   - Fredagsfika – bordsskylt (design canvas for the in-person table sign; its section was removed from the site): https://claude.ai/artifact/NYqCwYVpbZG8BcBEX2Y9uK
+  - Balder Bageri – SEO-plan mot konkurrenter (Claude Docs document, plan and status for SEO work; agents may edit this one as SEO work is done or the plan changes, via the Claude Docs connector, unlike the others): https://claude.ai/artifact/AWnL1NwYHhngoPbHL4Vaoo
 - Read them with the Artifact tool's `read` action, not a web fetch. When site facts change, tell the user which of these may need the same update; don't edit them unless asked.
 - Exported copies and other business files live outside the repo in `../docs`: the business plan (`Affärsplan – Balder Bageri UF.docx`), budget and bookkeeping (`.xlsx`), and the box and ingredient label sheets (`Balder_Bageri_*_Avery_L7651.docx`). The README lists them.
 - They describe the same business as the site. When prices, sorts, delivery details or contact details change on the site, tell the user which of these documents may need the same update. Don't edit them unless asked.
