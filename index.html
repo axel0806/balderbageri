@@ -121,7 +121,7 @@
           {
             "@type": "Offer",
             "name": "Stor kakpåse",
-            "description": "12 kakor, upp till 3 sorter",
+            "description": "12 kakor, valfri blandning",
             "priceCurrency": "SEK",
             "price": "149",
             "availability": "https://schema.org/InStock",
@@ -138,12 +138,12 @@
         {
           "@type": "Question",
           "name": "Hur beställer jag?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Skicka ett DM till @balderbageri på Instagram eller ett sms till 070-221 16 96. Skriv vilken påse och vilka sorter du vill ha. Vi tar inte emot samtal." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Välj påse och kakor här på sidan och betala med kort. Du kan också skicka ett DM till @balderbageri på Instagram eller ett sms till 070-221 16 96. Vi tar inte emot samtal." }
         },
         {
           "@type": "Question",
           "name": "Vad kostar det?",
-          "acceptedAnswer": { "@type": "Answer", "text": "En liten påse med 6 kakor, valfri sort, kostar 79 kr. En stor påse med 12 kakor, upp till 3 sorter, kostar 149 kr. Leveransen är gratis." }
+          "acceptedAnswer": { "@type": "Answer", "text": "En liten påse med 6 kakor, valfri sort, kostar 79 kr. En stor påse med 12 kakor, valfri blandning, kostar 149 kr. Leveransen är gratis." }
         },
         {
           "@type": "Question",
@@ -163,12 +163,12 @@
         {
           "@type": "Question",
           "name": "Hur betalar jag?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Med Swish i förskott till 070-221 16 96, samma nummer som du sms:ar till." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Med kort här på sidan, eller med Swish i förskott till 070-221 16 96, samma nummer som du sms:ar till." }
         },
         {
           "@type": "Question",
           "name": "Vilka sorter finns?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Chocolate chip cookies, kolakakor, havrekakor och hallongrottor. Runt jul och alla hjärtans dag bakar vi också kladdkakecookies. Allt bakas hemma hos oss i Skellefteå." }
+          "acceptedAnswer": { "@type": "Answer", "text": "Chocolate chip cookies, kolakakor, havrekakor, hallongrottor och kladdkakecookies. Allt bakas hemma hos oss i Skellefteå." }
         },
         {
           "@type": "Question",
@@ -232,11 +232,77 @@
         </article>
         <article class="price-card price-card-dark">
           <h3>Stor påse</h3>
-          <p>12 kakor, upp till 3 sorter</p>
+          <p>12 kakor, valfri blandning</p>
           <p class="price">149 kr</p>
         </article>
       </div>
       <p class="note">Påsarna märks med ingredienser, allergener och bakdatum. Inga nötter i grundsortimentet.</p>
+
+      <form class="order" id="orderForm" aria-labelledby="order-title">
+        <h3 id="order-title" class="order-title">Beställ online</h3>
+
+        <fieldset class="pkg-fieldset">
+          <legend>1. Välj påse</legend>
+          <label class="pkg">
+            <input type="radio" name="pkg" value="liten">
+            <span><strong>Liten påse</strong> · 6 kakor · 79 kr</span>
+          </label>
+          <label class="pkg">
+            <input type="radio" name="pkg" value="stor">
+            <span><strong>Stor påse</strong> · 12 kakor · 149 kr</span>
+          </label>
+        </fieldset>
+
+        <fieldset class="sort-fieldset" id="sortFieldset" disabled>
+          <legend>2. Välj kakorna <span class="count" id="count">0 av 0 valda</span></legend>
+          <ul class="picker">
+            <li class="picker-row">
+              <span class="picker-name">Chocolate chip cookies</span>
+              <div class="stepper">
+                <button type="button" data-sort="chocolate-chip" data-step="-1" aria-label="Ta bort en chocolate chip cookies">−</button>
+                <output id="qty-chocolate-chip">0</output>
+                <button type="button" data-sort="chocolate-chip" data-step="1" aria-label="Lägg till en chocolate chip cookies">+</button>
+              </div>
+            </li>
+            <li class="picker-row">
+              <span class="picker-name">Kolakakor</span>
+              <div class="stepper">
+                <button type="button" data-sort="kolakakor" data-step="-1" aria-label="Ta bort en kolakaka">−</button>
+                <output id="qty-kolakakor">0</output>
+                <button type="button" data-sort="kolakakor" data-step="1" aria-label="Lägg till en kolakaka">+</button>
+              </div>
+            </li>
+            <li class="picker-row">
+              <span class="picker-name">Havrekakor</span>
+              <div class="stepper">
+                <button type="button" data-sort="havrekakor" data-step="-1" aria-label="Ta bort en havrekaka">−</button>
+                <output id="qty-havrekakor">0</output>
+                <button type="button" data-sort="havrekakor" data-step="1" aria-label="Lägg till en havrekaka">+</button>
+              </div>
+            </li>
+            <li class="picker-row">
+              <span class="picker-name">Hallongrottor</span>
+              <div class="stepper">
+                <button type="button" data-sort="hallongrottor" data-step="-1" aria-label="Ta bort en hallongrotta">−</button>
+                <output id="qty-hallongrottor">0</output>
+                <button type="button" data-sort="hallongrottor" data-step="1" aria-label="Lägg till en hallongrotta">+</button>
+              </div>
+            </li>
+            <li class="picker-row">
+              <span class="picker-name">Kladdkakecookies</span>
+              <div class="stepper">
+                <button type="button" data-sort="kladdkake" data-step="-1" aria-label="Ta bort en kladdkakecookie">−</button>
+                <output id="qty-kladdkake">0</output>
+                <button type="button" data-sort="kladdkake" data-step="1" aria-label="Lägg till en kladdkakecookie">+</button>
+              </div>
+            </li>
+          </ul>
+        </fieldset>
+
+        <p class="order-msg" id="orderMsg" role="status" aria-live="polite">Välj en påse först.</p>
+        <button type="submit" class="btn btn-primary order-pay" id="payBtn" disabled>Betala med kort</button>
+        <p class="order-note">Du kan också betala med Swish, se <a href="#bestall">Så beställer du</a>.</p>
+      </form>
     </div>
   </section>
 
@@ -248,7 +314,7 @@
         <li><svg class="dot" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><rect x="2" y="9" width="40" height="26" rx="7" fill="#c98a3a"/><rect x="9" y="20" width="26" height="3" rx="1.5" fill="#8a5420"/></svg>Kolakakor</li>
         <li><svg class="dot" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#e8c88a"/><g fill="#b88a45"><circle cx="15" cy="17" r="2"/><circle cx="27" cy="15" r="2"/><circle cx="22" cy="27" r="2"/><circle cx="30" cy="26" r="2"/><circle cx="14" cy="28" r="2"/></g></svg>Havrekakor</li>
         <li><svg class="dot" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#e8c88a"/><circle cx="22" cy="22" r="8" fill="#c0314a"/></svg>Hallongrottor</li>
-        <li class="seasonal"><svg class="dot" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="none" stroke="#522834" stroke-width="3" stroke-dasharray="5 4"/></svg><span>Kladdkakecookies <small>– jul och alla hjärtans dag</small></span></li>
+        <li><svg class="dot" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#6b3e1f"/><circle cx="22" cy="22" r="8" fill="#e1a43a"/></svg>Kladdkakecookies</li>
       </ul>
     </div>
   </section>
@@ -257,8 +323,8 @@
     <div class="wrap">
       <h2>Så beställer du</h2>
       <ol class="steps">
-        <li><span class="num">1</span><p>Skicka ett <a href="https://ig.me/m/balderbageri" target="_blank" rel="noopener">DM på Instagram</a> eller ett sms till <a class="nowrap" href="sms:+46702211696">070-221 16 96</a>, senast kl. 20 dagen före.</p></li>
-        <li><span class="num">2</span><p>Betala med Swish i förskott till <a class="nowrap" href="https://app.swish.nu/1/p/sw/?sw=0702211696&amp;msg=hemsida&amp;src=qr" target="_blank" rel="noopener">070-221 16 96</a>.</p></li>
+        <li><span class="num">1</span><p>Välj påse och kakor ovan, eller skicka ett <a href="https://ig.me/m/balderbageri" target="_blank" rel="noopener">DM på Instagram</a> eller ett sms till <a class="nowrap" href="sms:+46702211696">070-221 16 96</a>, senast kl. 20 dagen före.</p></li>
+        <li><span class="num">2</span><p>Betala med kort ovan, eller med Swish i förskott till <a class="nowrap" href="https://app.swish.nu/1/p/sw/?sw=0702211696&amp;msg=hemsida&amp;src=qr" target="_blank" rel="noopener">070-221 16 96</a>.</p></li>
         <li><span class="num">3</span><p>Vi bakar och cyklar hem till dig onsdag, fredag eller lördag kl. 16–19.</p></li>
       </ol>
       <p class="delivery"><strong>Gratis hemleverans</strong> i hela Skellefteå. Vi levererar inte till byar utanför, som Kåge och Skelleftehamn.</p>
@@ -295,11 +361,11 @@
       <div class="faq-list">
         <div>
           <h3>Hur beställer jag?</h3>
-          <p>Skicka ett DM till @balderbageri på Instagram eller ett sms till 070-221 16 96. Skriv vilken påse och vilka sorter du vill ha. Vi tar inte emot samtal.</p>
+          <p>Välj påse och kakor här på sidan och betala med kort. Du kan också skicka ett DM till @balderbageri på Instagram eller ett sms till 070-221 16 96. Vi tar inte emot samtal.</p>
         </div>
         <div>
           <h3>Vad kostar det?</h3>
-          <p>En liten påse med 6 kakor, valfri sort, kostar 79 kr. En stor påse med 12 kakor, upp till 3 sorter, kostar 149 kr. Leveransen är gratis.</p>
+          <p>En liten påse med 6 kakor, valfri sort, kostar 79 kr. En stor påse med 12 kakor, valfri blandning, kostar 149 kr. Leveransen är gratis.</p>
         </div>
         <div>
           <h3>Levererar ni hem till mig?</h3>
@@ -315,11 +381,11 @@
         </div>
         <div>
           <h3>Hur betalar jag?</h3>
-          <p>Med Swish i förskott till 070-221 16 96, samma nummer som du sms:ar till.</p>
+          <p>Med kort här på sidan, eller med Swish i förskott till 070-221 16 96, samma nummer som du sms:ar till.</p>
         </div>
         <div>
           <h3>Vilka sorter finns?</h3>
-          <p>Chocolate chip cookies, kolakakor, havrekakor och hallongrottor. Runt jul och alla hjärtans dag bakar vi också kladdkakecookies. Allt bakas hemma hos oss i Skellefteå.</p>
+          <p>Chocolate chip cookies, kolakakor, havrekakor, hallongrottor och kladdkakecookies. Allt bakas hemma hos oss i Skellefteå.</p>
         </div>
         <div>
           <h3>Vad innehåller kakorna?</h3>
@@ -339,6 +405,7 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="order.js" defer></script>
 
 <!-- Vercel Web Analytics (cookie-free) -->
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>

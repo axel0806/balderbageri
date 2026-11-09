@@ -133,6 +133,40 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 .price-card-dark .price{ color: var(--gold-light); }
 .note{ margin-top: 24px; color: var(--muted); font-size: 0.95rem; }
 
+/* ---------- Beställningsformulär ---------- */
+.order{ margin-top: 56px; padding-top: 40px; border-top: 3px solid rgba(82,40,52,0.35); }
+.order-title{ font-family: var(--font-display); font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.4rem); color: var(--wine); margin-bottom: 24px; }
+.order fieldset{ border: 0; margin: 0 0 32px; padding: 0; min-width: 0; }
+.order legend{ font-weight: 600; font-size: 1.15rem; color: var(--wine); margin-bottom: 14px; padding: 0; }
+.count{ font-weight: 500; font-size: 0.95rem; color: var(--muted); margin-left: 8px; }
+.order fieldset:disabled{ opacity: 0.45; }
+.pkg-fieldset{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pkg-fieldset legend{ grid-column: 1 / -1; }
+.pkg{
+  display: flex; align-items: center; gap: 12px; cursor: pointer;
+  border: 3px solid var(--wine); border-radius: 20px; padding: 16px 20px; font-size: 1.05rem;
+}
+.pkg input{ width: 22px; height: 22px; accent-color: var(--wine); flex: none; margin: 0; }
+.pkg:has(input:checked){ background: var(--wine); color: #fff; }
+.pkg:has(input:checked) strong{ color: var(--gold-light); }
+.picker{ list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.picker-row{
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  border: 2px solid rgba(82,40,52,0.35); border-radius: 18px; padding: 10px 14px;
+}
+.picker-name{ font-weight: 600; font-size: 1.1rem; }
+.stepper{ display: flex; align-items: center; gap: 6px; flex: none; }
+.stepper button{
+  width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--wine);
+  background: #fff; color: var(--wine); font: inherit; font-size: 1.4rem; font-weight: 600; line-height: 1; cursor: pointer;
+}
+.stepper button:disabled{ opacity: 0.35; cursor: not-allowed; }
+.stepper output{ min-width: 36px; text-align: center; font-weight: 700; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.order-msg{ margin-bottom: 16px; color: var(--ink); font-weight: 500; }
+.order-pay{ border: 0; cursor: pointer; font: inherit; }
+.order-pay:disabled{ background: #9b8a8f; cursor: not-allowed; transform: none; }
+.order-note{ margin-top: 16px; color: var(--muted); font-size: 0.95rem; }
+
 /* ---------- Sorter ---------- */
 .sorter{ background: var(--beige); }
 .sort-grid{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -210,4 +244,6 @@ footer{ background: var(--wine-deep); padding: 24px 0 calc(24px + env(safe-area-
   .wrap{ padding: 0 18px; }
   .logo img{ height: 38px; }
   .price-card{ padding: 22px; }
+  .pkg-fieldset{ grid-template-columns: 1fr; }
+  .picker-name{ font-size: 1rem; }
 }
