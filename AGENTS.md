@@ -6,7 +6,7 @@ Guidance for AI coding agents working in this repository.
 
 Single-page website for **Balder Bageri UF**, a Swedish student-run company (UF-företag)
 in Skellefteå that bakes cookies at home and delivers them. Live at
-https://balderbageri.sigmaaxel.se (hosted on Vercel). Goal: rank first in search for "Balder Bageri".
+https://balderbageri.se (hosted on Vercel). Goal: rank first in search for "Balder Bageri".
 
 It is a plain static site: **no framework, no bundler, no package manager, no build step.**
 Keep it that way unless the maintainer explicitly asks otherwise.
@@ -19,7 +19,7 @@ index.html         # All markup, meta tags and JSON-LD
 style.css          # All styling (design tokens as CSS custom properties)
 script.js          # Mobile nav toggle only
 robots.txt, sitemap.xml, site.webmanifest, favicon.svg, icon-*.png, og-image.png
-vercel.json        # Redirects the old bitk-kappa.vercel.app host to the live domain
+vercel.json        # Redirects the old sigmaaxel.se subdomain and www to balderbageri.se
 googleeb98a78338a1963e.html  # Google Search Console verification, keep
 README.md
 LICENSE.md
