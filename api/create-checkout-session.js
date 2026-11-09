@@ -85,6 +85,8 @@ export default async function handler(req, res) {
   params.set('automatic_tax[enabled]', 'false');
   // The delivery address is collected on the page and sent as metadata (the Stripe form hides city and postcode at first).
   params.set('phone_number_collection[enabled]', 'false');
+  // Shown on Stripe's receipt email.
+  params.set('payment_intent_data[description]', `Balder Bageri: ${pkg.label} (${breakdown})`);
   params.set('metadata[package]', pkgKey);
   params.set('metadata[sorts]', sortsMeta);
   params.set('metadata[source]', 'hemsida');
