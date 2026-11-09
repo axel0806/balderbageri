@@ -42,7 +42,16 @@ function validate(body) {
   }
   if (total !== pkg.count) return { error: `Påsen ska innehålla exakt ${pkg.count} kakor.` };
 
-  return { pkgKey, pkg, lines };
+  const a = body.address;
+  if (!a || typeof a !== 'object') return { error: 'Fyll i leveransadressen.' };
+  const street = typeof a.street === 'string' ? a.street.trim() : '';
+  const postcode = typeof a.postcode === 'string' ? a.postcode.trim() : '';
+  const city = typeof a.city === 'string' ? a.city.trim() : '';
+  if (street.length < 3 || street.length > 100) return { error: 'Ogiltig gatuadress.' };
+  if (!/^\d{3}\s?\d{2}$/.test(postcode)) return { error: 'Ogiltigt postnummer.' };
+  if (city.length < 2 || city.length > 60) return { error: 'Ogiltig postort.' };
+
+  return { pkgKey, pkg, lines, address: { street, postcode, city } };
 }
 
 export default async function handler(req, res) {
@@ -53,7 +62,7 @@ export default async function handler(req, res) {
 
   const checked = validate(req.body);
   if (checked.error) return res.status(400).json({ error: checked.error });
-  const { pkgKey, pkg, lines } = checked;
+  const { pkgKey, pkg, lines, address } = checked;
 
   const breakdown = lines.map(([k, q]) => `${SORTS[k]} ×${q}`).join(', ');
   const sortsMeta = lines.map(([k, q]) => `${SORTS[k]}: ${q}`).join(', ');
@@ -74,11 +83,14 @@ export default async function handler(req, res) {
   params.set('line_items[0][price_data][product_data][name]', pkg.label);
   params.set('line_items[0][price_data][product_data][description]', breakdown);
   params.set('automatic_tax[enabled]', 'false');
-  params.set('shipping_address_collection[allowed_countries][0]', 'SE'); // delivery address
+  // The delivery address is collected on the page and sent as metadata (the Stripe form hides city and postcode at first).
   params.set('phone_number_collection[enabled]', 'false');
   params.set('metadata[package]', pkgKey);
   params.set('metadata[sorts]', sortsMeta);
   params.set('metadata[source]', 'hemsida');
+  params.set('metadata[street]', address.street);
+  params.set('metadata[postcode]', address.postcode);
+  params.set('metadata[city]', address.city);
 
   let stripeRes;
   try {

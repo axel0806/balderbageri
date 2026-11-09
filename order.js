@@ -3,6 +3,8 @@
 (() => {
   // Publik nyckel (pk_...). Den är inte hemlig, men den hör till kontot.
   const STRIPE_PUBLISHABLE_KEY = 'pk_test_51UZp3RBAuGLWdkFjLKyXpkMWf7Y2CrvDGMEiSisG9AwRpGWFzgx4XJ6C7pDzCxQhP0ZiN2CZiyBLApVJqr5ZPvq900DiEN9CUU';
+  // Same font as the site. If Stripe rejects it, the form is started without it (see startCheckout).
+  const FONTS = [{ cssSrc: 'https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap' }];
   const SIZES = { liten: 6, stor: 12 };
   const APPEARANCE = {
     theme: 'stripe',
@@ -15,7 +17,7 @@
       colorPrimary: '#522834', // wine
       colorSuccess: '#2e7d32',
       colorText: '#2A1A1D', // ink
-      fontFamily: 'default',
+      fontFamily: '"Instrument Sans", system-ui, sans-serif',
       fontSizeBase: '16px',
       spacingUnit: '4px',
     },
@@ -32,6 +34,9 @@
   const countEl = document.getElementById('count');
   const msg = document.getElementById('orderMsg');
   const payBtn = document.getElementById('payBtn');
+  const streetEl = document.getElementById('addrStreet');
+  const postcodeEl = document.getElementById('addrPostcode');
+  const cityEl = document.getElementById('addrCity');
   const steppers = form.querySelectorAll('[data-sort][data-step]');
 
   const counts = {};
@@ -59,6 +64,10 @@
     return checked ? checked.value : null;
   };
   const size = () => SIZES[selectedPkg()] || 0;
+  const addressOk = () =>
+    streetEl.value.trim().length >= 3 &&
+    /^\d{3}\s?\d{2}$/.test(postcodeEl.value.trim()) &&
+    cityEl.value.trim().length >= 2;
   const total = () => Object.values(counts).reduce((a, b) => a + b, 0);
 
   function render() {
@@ -77,12 +86,13 @@
       btn.disabled = btn.dataset.step === '1' ? t >= s : counts[key] <= 0;
     });
 
-    const ready = Boolean(pkg) && t === s;
+    const ready = Boolean(pkg) && t === s && addressOk();
     payBtn.disabled = !ready;
 
     if (!pkg) msg.textContent = 'Välj en påse först.';
     else if (ready) msg.textContent = 'Allt klart. Nu går du vidare till betalningen.';
-    else msg.textContent = `Välj ${s - t} kakor till.`;
+    else if (t !== s) msg.textContent = `Välj ${s - t} kakor till.`;
+    else msg.textContent = 'Fyll i leveransadressen (gatuadress, postnummer och postort).';
   }
 
   function showSteps() {
@@ -118,6 +128,18 @@
     });
   });
 
+  [streetEl, postcodeEl, cityEl].forEach((el) => el.addEventListener('input', render));
+
+  // Try the site font first. If Stripe rejects the option, start again without it.
+  function startCheckout(stripe, clientSecret) {
+    try {
+      return stripe.initCheckoutFormSdk({ clientSecret, appearance: APPEARANCE, fonts: FONTS });
+    } catch (err) {
+      console.warn('Checkout started without custom font:', err);
+      return stripe.initCheckoutFormSdk({ clientSecret, appearance: APPEARANCE });
+    }
+  }
+
   backBtn.addEventListener('click', showSteps);
 
   form.addEventListener('submit', async (e) => {
@@ -137,14 +159,22 @@
       const res = await fetch('/api/create-checkout-session', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pkg, sorts }),
+        body: JSON.stringify({
+          pkg,
+          sorts,
+          address: {
+            street: streetEl.value.trim(),
+            postcode: postcodeEl.value.trim(),
+            city: cityEl.value.trim(),
+          },
+        }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data.client_secret) throw new Error(data.error || 'Något gick fel.');
 
       const stripe = await loadStripe();
       if (checkout) checkout.destroy?.();
-      checkout = stripe.initCheckoutFormSdk({ clientSecret: data.client_secret, appearance: APPEARANCE });
+      checkout = startCheckout(stripe, data.client_secret);
       showCheckout();
       const paymentForm = checkout.createForm({ layout: 'expanded' });
       paymentForm.mount('#checkout');

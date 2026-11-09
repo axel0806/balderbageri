@@ -300,6 +300,19 @@
           </ul>
         </fieldset>
 
+        <fieldset class="addr-fieldset">
+          <legend>3. Leveransadress</legend>
+          <label class="field field-wide">Gatuadress
+            <input type="text" id="addrStreet" name="street" autocomplete="shipping street-address" maxlength="100" required>
+          </label>
+          <label class="field">Postnummer
+            <input type="text" id="addrPostcode" name="postcode" autocomplete="shipping postal-code" inputmode="numeric" maxlength="6" placeholder="931 42" required>
+          </label>
+          <label class="field">Postort
+            <input type="text" id="addrCity" name="city" autocomplete="shipping address-level2" maxlength="60" required>
+          </label>
+        </fieldset>
+
         <p class="order-msg" id="orderMsg" role="status" aria-live="polite">Välj en påse först.</p>
         <button type="submit" class="btn btn-primary order-pay" id="payBtn" disabled>Betala med kort</button>
         <p class="order-note">Du kan också betala med Swish, se <a href="#bestall">Så beställer du</a>.</p>

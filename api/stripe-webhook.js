@@ -66,10 +66,10 @@ export default async function handler(req, res) {
     name: s.customer_details?.name ?? shipping.name ?? '',
     email: s.customer_details?.email ?? '',
     phone: s.customer_details?.phone ?? '',
-    street: addr.line1 ?? '',
+    street: s.metadata?.street ?? addr.line1 ?? '',
     street2: addr.line2 ?? '',
-    postcode: addr.postal_code ?? '',
-    city: addr.city ?? '',
+    postcode: s.metadata?.postcode ?? addr.postal_code ?? '',
+    city: s.metadata?.city ?? addr.city ?? '',
     paymentIntent: s.payment_intent ?? '',
   };
 

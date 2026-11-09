@@ -161,6 +161,15 @@ nav{ display: flex; align-items: center; justify-content: space-between; }
 }
 .stepper button:disabled{ opacity: 0.35; cursor: not-allowed; }
 .stepper output{ min-width: 36px; text-align: center; font-weight: 700; font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+.addr-fieldset{ display: grid; grid-template-columns: 1fr 1fr; gap: 14px 16px; }
+.addr-fieldset legend{ grid-column: 1 / -1; }
+.field{ display: grid; gap: 6px; font-weight: 600; color: var(--wine); }
+.field-wide{ grid-column: 1 / -1; }
+.field input{
+  font: inherit; font-weight: 400; color: var(--ink); background: #fff;
+  border: 2px solid rgba(82,40,52,0.35); border-radius: 14px; padding: 12px 14px; min-height: 48px;
+}
+.field input:focus{ outline: 3px solid var(--gold); border-color: var(--wine); }
 .order-msg{ margin-bottom: 16px; color: var(--ink); font-weight: 500; }
 .order-pay{ border: 0; cursor: pointer; font: inherit; }
 .order-pay:disabled{ background: #9b8a8f; cursor: not-allowed; transform: none; }
