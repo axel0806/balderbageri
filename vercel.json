@@ -1,12 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "balderbageri.sigmaaxel.se" }],
-      "destination": "https://www.balderbageri.se/:path",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/assets/fonts/:file",
